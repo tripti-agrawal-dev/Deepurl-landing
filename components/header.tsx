@@ -33,10 +33,22 @@ export default function Header() {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <button className="px-4 py-2 text-sm font-medium hover:text-accent transition">Log in</button>
-          <button className="px-6 py-2 bg-accent text-accent-foreground rounded-full text-sm font-medium hover:opacity-90 transition">
+          <a
+            href="https://dashboard.deepurls.com"
+            target="_blank"
+            className="px-4 py-2 text-sm font-medium hover:text-accent transition"
+          >
+            Log in
+          </a>
+
+          <a
+            href="https://dashboard.deepurls.com"
+            target="_blank"
+            className="px-6 py-2 bg-accent text-accent-foreground rounded-full text-sm font-medium hover:opacity-90 transition"
+          >
             Sign up
-          </button>
+          </a>
+
         </div>
 
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
