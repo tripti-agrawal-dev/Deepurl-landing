@@ -9,8 +9,9 @@ import FAQ from "@/components/faq"
 import Footer from "@/components/footer"
 
 export default function Home() {
+
   return (
-    <main className="bg-background text-foreground">
+    <main className=" bg-white text-foreground">
       <Header />
       <Hero />
       <TrustBar />
