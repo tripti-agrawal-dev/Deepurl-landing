@@ -225,28 +225,20 @@ var _s = __turbopack_context__.k.signature();
 ;
 const faqs = [
     {
-        question: "How does DeepURL detect user devices?",
-        answer: "DeepURL uses advanced device detection technology to identify iOS, Android, Desktop, and Web users in real-time, automatically routing them to the appropriate destination."
+        question: "What exactly is DeepURL?",
+        answer: "DeepURL is a growth engine for your mobile app. It combines intelligent deep linking (routing users to the right content) with precise attribution (tracking where users came from). Think of us as the bridge that connects your marketing ads directly to your app's success."
     },
     {
-        question: "Can I track attribution across campaigns?",
-        answer: "Yes! Our platform supports UTM parameters and custom campaign tracking. Every click is attributed to its original source, helping you measure ROI across all channels."
+        question: "Why does my app need DeepURL? What's the advantage?",
+        answer: "Without DeepURL, you risk broken user journeys and blind data. The biggest advantages are:\n\nHigher Conversions: Users land exactly on the product they clicked, not a generic homepage.\n\nClear ROI: You stop guessing. You'll know exactly which ad, influencer, or email drove that install."
     },
     {
-        question: "Do you support custom branding on QR codes?",
-        answer: "Absolutely. You can customize QR codes with your brand colors, logos, and design to maintain brand consistency across all marketing materials."
+        question: "Do I need a developer to use this?",
+        answer: "Just once. Your developer adds our lightweight SDK (takes ~30 mins). After that, your marketing team can create unlimited smart links and track campaigns without writing a single line of code."
     },
     {
-        question: "What SDKs and platforms do you support?",
-        answer: "We offer native SDKs for iOS, Android, Web, React Native, and Flutter, plus full REST API support for custom integrations."
-    },
-    {
-        question: "How quickly can I get started?",
-        answer: "You can generate your first deep link in minutes. Our onboarding is designed to be quick and intuitive, with comprehensive docs and support."
-    },
-    {
-        question: "Is my data secure?",
-        answer: "Yes. We follow industry-leading security practices including end-to-end encryption, regular security audits, and compliance with GDPR, CCPA, and SOC 2."
+        question: "Do you offer a free plan or trial?",
+        answer: "DeepURL is an enterprise-grade solution. We don't offer a generic free tier because every app's needs are unique. Instead, we invite you to Request a Demo. Our team will give you a personalized walkthrough and build a custom plan tailored specifically to your growth goals."
     }
 ];
 function FAQ() {
@@ -262,26 +254,15 @@ function FAQ() {
                     className: "text-center mb-12",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                         className: "text-3xl md:text-5xl font-bold mb-4",
-                        children: [
-                            "Frequently asked",
-                            " ",
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent",
-                                children: "questions"
-                            }, void 0, false, {
-                                fileName: "[project]/components/faq.tsx",
-                                lineNumber: 48,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
+                        children: "Everything You Need to Know"
+                    }, void 0, false, {
                         fileName: "[project]/components/faq.tsx",
-                        lineNumber: 46,
+                        lineNumber: 36,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/faq.tsx",
-                    lineNumber: 45,
+                    lineNumber: 35,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -300,7 +281,7 @@ function FAQ() {
                                                 children: faq.question
                                             }, void 0, false, {
                                                 fileName: "[project]/components/faq.tsx",
-                                                lineNumber: 61,
+                                                lineNumber: 50,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
@@ -308,48 +289,48 @@ function FAQ() {
                                                 className: `flex-shrink-0 text-accent transition-transform ${openIndex === index ? "rotate-180" : ""}`
                                             }, void 0, false, {
                                                 fileName: "[project]/components/faq.tsx",
-                                                lineNumber: 62,
+                                                lineNumber: 51,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/faq.tsx",
-                                        lineNumber: 60,
+                                        lineNumber: 49,
                                         columnNumber: 17
                                     }, this),
                                     openIndex === index && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "mt-4 text-muted-foreground leading-relaxed",
+                                        className: "mt-4 text-muted-foreground leading-relaxed whitespace-pre-line",
                                         children: faq.answer
                                     }, void 0, false, {
                                         fileName: "[project]/components/faq.tsx",
-                                        lineNumber: 69,
-                                        columnNumber: 41
+                                        lineNumber: 59,
+                                        columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/faq.tsx",
-                                lineNumber: 59,
+                                lineNumber: 48,
                                 columnNumber: 15
                             }, this)
                         }, index, false, {
                             fileName: "[project]/components/faq.tsx",
-                            lineNumber: 54,
+                            lineNumber: 43,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/components/faq.tsx",
-                    lineNumber: 52,
+                    lineNumber: 41,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/faq.tsx",
-            lineNumber: 44,
+            lineNumber: 34,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/faq.tsx",
-        lineNumber: 43,
+        lineNumber: 33,
         columnNumber: 5
     }, this);
 }

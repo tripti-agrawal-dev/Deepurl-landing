@@ -7,22 +7,19 @@ export default function Hero() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-balance">
-              Smart deep links that{" "}
+              Flawless Linking.{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                drive growth
-              </span>
+                Precise Attribution.
+              </span>{" "}
+              Limitless Growth.
             </h1>
             <p className="text-lg text-muted-foreground mb-8 text-balance">
-              Automatically route users to the right destination—app store, installed app, or web. Track every
-              conversion with intelligent attribution analytics.
+              Reliable deep linking with accurate attribution across the entire user journey. Stop guessing where your users come from. We connect every dot from the first click to the final purchase on mobile, web, and beyond.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="px-8 py-3 bg-accent text-accent-foreground rounded-full font-medium hover:opacity-90 transition flex items-center justify-center gap-2">
-                Create Your First Link
+                Request a Demo
                 <ArrowRight size={18} />
-              </button>
-              <button className="px-8 py-3 border border-border hover:bg-muted rounded-full font-medium transition">
-                Book Demo
               </button>
             </div>
           </div>

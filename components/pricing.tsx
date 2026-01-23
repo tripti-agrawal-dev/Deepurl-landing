@@ -1,45 +1,36 @@
-import { Check } from "lucide-react"
+import { Check, ArrowRight } from "lucide-react"
 
 const plans = [
   {
-    name: "Free",
-    price: "$0",
-    description: "Perfect for getting started",
-    features: ["Up to 1,000 clicks/month", "Basic analytics", "5 custom links", "Email support"],
-    cta: "Start Free",
-    highlight: false,
-  },
-  {
-    name: "Pro",
-    price: "$99",
-    description: "For growing teams",
+    name: "Growth",
+    label: "STARTING AT",
+    price: "$189",
+    period: "/month",
+    volume: "100k Monthly Active Users",
+    description: "Professional deep linking infrastructure to power your user growth.",
     features: [
-      "Unlimited clicks",
-      "Advanced analytics",
-      "Unlimited custom links",
-      "QR code generation",
-      "Custom branding",
-      "Priority support",
-      "API access",
+      "Reliable Deep Linking (iOS/Android)",
+      "Custom Branded Links & QR Codes",
+      "Web-to-App Smart Banners",
     ],
-    cta: "Start Free Trial",
-    highlight: true,
+    cta: "Start now",
+    highlight: false,
   },
   {
     name: "Enterprise",
+    label: "VOLUME PRICING",
     price: "Custom",
-    description: "For large organizations",
+    period: "",
+    volume: "Unlimited Scale & Support",
+    description: "Unlock accurate attribution and full-funnel visibility across every channel.",
     features: [
-      "Everything in Pro",
-      "Advanced security & compliance",
-      "Dedicated account manager",
-      "SLA guarantee",
-      "Custom integrations",
-      "Team collaboration tools",
-      "On-premise options",
+      "Accurate Attribution (FB, Google, TikTok)",
+      "Privacy-Safe Predictive Modeling (PAM)",
+      "Fraud Protection & Raw Data Export",
     ],
     cta: "Contact Sales",
-    highlight: false,
+    highlight: true,
+    showArrow: true,
   },
 ]
 
@@ -49,13 +40,15 @@ export default function Pricing() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Simple, transparent{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">pricing</span>
+            Plans that scale as fast as{" "}
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">you do</span>
           </h2>
-          <p className="text-lg text-muted-foreground">Choose the plan that works for your team</p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Start with essential deep linking today, and upgrade to enterprise attribution when you're ready to dominate.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {plans.map((plan) => (
             <div
               key={plan.name}
@@ -66,22 +59,29 @@ export default function Pricing() {
               }`}
             >
               <div className="p-8">
+                <div className="mb-4">
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                    {plan.label}
+                  </span>
+                </div>
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <p className="text-muted-foreground text-sm mb-6">{plan.description}</p>
 
-                <div className="mb-6">
+                <div className="mb-4">
                   <span className="text-4xl font-bold">{plan.price}</span>
-                  {plan.price !== "Custom" && <span className="text-muted-foreground">/month</span>}
+                  {plan.period && <span className="text-muted-foreground">{plan.period}</span>}
                 </div>
+                <p className="text-sm text-muted-foreground mb-6">{plan.volume}</p>
 
                 <button
-                  className={`w-full py-2 rounded-lg font-medium transition mb-8 ${
+                  className={`w-full py-3 rounded-lg font-medium transition mb-8 flex items-center justify-center gap-2 ${
                     plan.highlight
                       ? "bg-accent text-accent-foreground hover:opacity-90"
-                      : "border border-border hover:bg-muted"
+                      : "bg-primary text-primary-foreground hover:opacity-90"
                   }`}
                 >
                   {plan.cta}
+                  {plan.showArrow && <ArrowRight size={18} />}
                 </button>
 
                 <div className="space-y-4">
