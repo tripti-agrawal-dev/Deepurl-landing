@@ -4,6 +4,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           <div>
             <h4 className="font-semibold mb-4">Product</h4>
@@ -18,11 +19,11 @@ export default function Footer() {
                   Pricing
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="#" className="hover:text-foreground transition">
                   API Docs
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div>
@@ -69,12 +70,12 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href="#" className="hover:text-foreground transition">
+                <Link href="/privacy" className="hover:text-foreground transition">
                   Privacy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-foreground transition">
+                <Link href="/terms" className="hover:text-foreground transition">
                   Terms
                 </Link>
               </li>

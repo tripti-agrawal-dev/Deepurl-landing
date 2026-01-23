@@ -5,34 +5,24 @@ import { useState } from "react"
 
 const faqs = [
   {
-    question: "How does DeepURL detect user devices?",
+    question: "What exactly is DeepURL?",
     answer:
-      "DeepURL uses advanced device detection technology to identify iOS, Android, Desktop, and Web users in real-time, automatically routing them to the appropriate destination.",
+      "DeepURL is a growth engine for your mobile app. It combines intelligent deep linking (routing users to the right content) with precise attribution (tracking where users came from). Think of us as the bridge that connects your marketing ads directly to your app's success.",
   },
   {
-    question: "Can I track attribution across campaigns?",
+    question: "Why does my app need DeepURL? What's the advantage?",
     answer:
-      "Yes! Our platform supports UTM parameters and custom campaign tracking. Every click is attributed to its original source, helping you measure ROI across all channels.",
+      "Without DeepURL, you risk broken user journeys and blind data. The biggest advantages are:\n\nHigher Conversions: Users land exactly on the product they clicked, not a generic homepage.\n\nClear ROI: You stop guessing. You'll know exactly which ad, influencer, or email drove that install.",
   },
   {
-    question: "Do you support custom branding on QR codes?",
+    question: "Do I need a developer to use this?",
     answer:
-      "Absolutely. You can customize QR codes with your brand colors, logos, and design to maintain brand consistency across all marketing materials.",
+      "Just once. Your developer adds our lightweight SDK (takes ~30 mins). After that, your marketing team can create unlimited smart links and track campaigns without writing a single line of code.",
   },
   {
-    question: "What SDKs and platforms do you support?",
+    question: "Do you offer a free plan or trial?",
     answer:
-      "We offer native SDKs for iOS, Android, Web, React Native, and Flutter, plus full REST API support for custom integrations.",
-  },
-  {
-    question: "How quickly can I get started?",
-    answer:
-      "You can generate your first deep link in minutes. Our onboarding is designed to be quick and intuitive, with comprehensive docs and support.",
-  },
-  {
-    question: "Is my data secure?",
-    answer:
-      "Yes. We follow industry-leading security practices including end-to-end encryption, regular security audits, and compliance with GDPR, CCPA, and SOC 2.",
+      "DeepURL is an enterprise-grade solution. We don't offer a generic free tier because every app's needs are unique. Instead, we invite you to Request a Demo. Our team will give you a personalized walkthrough and build a custom plan tailored specifically to your growth goals.",
   },
 ]
 
@@ -44,8 +34,7 @@ export default function FAQ() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Frequently asked{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">questions</span>
+            Everything You Need to Know
           </h2>
         </div>
 
@@ -66,7 +55,9 @@ export default function FAQ() {
                     }`}
                   />
                 </div>
-                {openIndex === index && <p className="mt-4 text-muted-foreground leading-relaxed">{faq.answer}</p>}
+                {openIndex === index && (
+                  <p className="mt-4 text-muted-foreground leading-relaxed whitespace-pre-line">{faq.answer}</p>
+                )}
               </div>
             </button>
           ))}
