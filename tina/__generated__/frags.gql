@@ -1,0 +1,250 @@
+fragment GlobalSettingsParts on GlobalSettings {
+  __typename
+  navigation {
+    __typename
+    menuItems {
+      __typename
+      label
+      href
+      isExternal
+    }
+  }
+  footer {
+    __typename
+    copyrightText
+    socialLinks {
+      __typename
+      platform
+      url
+    }
+    footerMenus {
+      __typename
+      title
+      links {
+        __typename
+        label
+        href
+      }
+    }
+  }
+  seo {
+    __typename
+    defaultTitle
+    defaultDescription
+    favicon
+    ogImage
+  }
+}
+
+fragment PostParts on Post {
+  __typename
+  title
+  slug
+  featuredImage
+  featuredImageAlt
+  author
+  publishDate
+  excerpt
+  seo {
+    __typename
+    metaTitle
+    metaDescription
+    canonicalUrl
+  }
+  body
+}
+
+fragment HomepageParts on Homepage {
+  __typename
+  hero {
+    __typename
+    headline
+    subheadline
+    backgroundImage
+    backgroundVideo
+    primaryCta {
+      __typename
+      text
+      link
+    }
+    secondaryCta {
+      __typename
+      text
+      link
+    }
+  }
+  socialProof {
+    __typename
+    title
+    logos {
+      __typename
+      name
+      logo
+    }
+  }
+  features {
+    __typename
+    sectionTitle
+    sectionSubtitle
+    featureCards {
+      __typename
+      icon
+      title
+      description
+    }
+  }
+  problem {
+    __typename
+    headline
+    description
+    problems {
+      __typename
+      title
+      description
+    }
+    closingText
+  }
+  solution {
+    __typename
+    headline
+    subheadline
+    solutions {
+      __typename
+      title
+      fix
+      result
+    }
+  }
+  impact {
+    __typename
+    headline
+    subheadline
+    stats {
+      __typename
+      value
+      label
+      description
+    }
+  }
+  useCases {
+    __typename
+    headline
+    cases {
+      __typename
+      title
+      win
+      outcome
+    }
+  }
+  comparison {
+    __typename
+    headline
+    subheadline
+    rows {
+      __typename
+      feature
+      deepurl
+      competitors
+    }
+  }
+  howItWorks {
+    __typename
+    headline
+    steps {
+      __typename
+      title
+      description
+    }
+  }
+  faq {
+    __typename
+    headline
+    questions {
+      __typename
+      question
+      answer
+    }
+  }
+  footerCta {
+    __typename
+    headline
+    description
+    buttonText
+    buttonLink
+  }
+}
+
+fragment PricingParts on Pricing {
+  __typename
+  headline
+  subheadline
+  monthlyLabel
+  yearlyLabel
+  plans {
+    __typename
+    name
+    description
+    priceLabel
+    price
+    period
+    volume
+    highlighted
+    features
+    ctaText
+    ctaLink
+  }
+}
+
+fragment TestimonialParts on Testimonial {
+  __typename
+  name
+  title
+  company
+  location
+  photo
+  quote
+  rating
+}
+
+fragment TeamMemberParts on TeamMember {
+  __typename
+  name
+  role
+  photo
+  bio
+  social {
+    __typename
+    linkedin
+    twitter
+  }
+}
+
+fragment AboutPageParts on AboutPage {
+  __typename
+  headline
+  mainContent
+  teamSectionTitle
+}
+
+fragment LegalPageParts on LegalPage {
+  __typename
+  title
+  slug
+  lastUpdated
+  effectiveDate
+  seo {
+    __typename
+    metaTitle
+    metaDescription
+  }
+  body
+}
+
+fragment DocPageParts on DocPage {
+  __typename
+  title
+  slug
+  order
+  category
+  body
+}
