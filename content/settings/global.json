@@ -1,0 +1,38 @@
+{
+  "navigation": {
+    "menuItems": [
+      { "label": "Features", "href": "#features", "isExternal": false },
+      { "label": "Use Cases", "href": "#use-cases", "isExternal": false },
+      { "label": "Pricing", "href": "#pricing", "isExternal": false },
+      { "label": "FAQ", "href": "#faq", "isExternal": false }
+    ]
+  },
+  "footer": {
+    "copyrightText": "© 2026 DeepURL. All rights reserved.",
+    "socialLinks": [
+      { "platform": "Twitter", "url": "#" },
+      { "platform": "GitHub", "url": "#" },
+      { "platform": "LinkedIn", "url": "#" }
+    ],
+    "footerMenus": [
+      {
+        "title": "Product",
+        "links": [
+          { "label": "Features", "href": "#features" },
+          { "label": "Pricing", "href": "#pricing" }
+        ]
+      },
+      {
+        "title": "Legal",
+        "links": [
+          { "label": "Privacy", "href": "/privacy" },
+          { "label": "Terms", "href": "/terms" }
+        ]
+      }
+    ]
+  },
+  "seo": {
+    "defaultTitle": "Mobile Attribution & Deep Linking Platform | DeepURL",
+    "defaultDescription": "Drive app growth with DeepURL's precise mobile attribution and seamless deep linking. Track every click, maximize ROI, and unify cross-platform journeys."
+  }
+}

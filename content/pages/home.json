@@ -1,0 +1,137 @@
+{
+  "hero": {
+    "headline": "Flawless Linking. Precise Attribution. Limitless Growth.",
+    "subheadline": "Reliable deep linking with accurate attribution across the entire user journey. Stop guessing where your users come from. We connect every dot from the first click to the final purchase on mobile, web, and beyond.",
+    "primaryCta": {
+      "text": "Request a Demo",
+      "link": "#pricing"
+    }
+  },
+  "socialProof": {
+    "title": "Trusted by leading app & growth teams",
+    "logos": []
+  },
+  "features": {
+    "sectionTitle": "Core Features",
+    "featureCards": [
+      {
+        "title": "Reliable Deep Linking",
+        "description": "Never lose a user to a broken link again. Ensure a flawless experience across every device and platform. Our intelligent Deferred Deep Linking technology detects if the user has your app installed."
+      },
+      {
+        "title": "Accurate Attribution",
+        "description": "Data you can trust, down to the last install. Stop optimizing based on guesswork. We provide precise attribution data that cuts through the noise."
+      },
+      {
+        "title": "Entire User Journey",
+        "description": "Connect the dots from Web to App. Most tools lose track when a user switches platforms. DeepURL bridges the gap with Full-Funnel Visibility."
+      }
+    ]
+  },
+  "problem": {
+    "headline": "Is Your Mobile Traffic Hitting a Dead End?",
+    "description": "You pay for clicks, but are you getting customers? When users move from web to app, links break and data gets lost. The result? Wasted budget and frustrated users.",
+    "problems": [
+      { "title": "Broken Journeys", "description": "Users click a product ad but land on a generic homepage. Friction kills sales." },
+      { "title": "Blind Data", "description": "Unknown Source in your analytics means you can't optimize what you can't see." },
+      { "title": "Dev Headaches", "description": "Wasting engineering hours on fixing link routing for every new OS update." }
+    ],
+    "closingText": "DeepURL fixes the flow. No broken links. No blind spots."
+  },
+  "solution": {
+    "headline": "One Platform. Flawless Journeys.",
+    "subheadline": "Route every user to the right place and track every dollar they spend.",
+    "solutions": [
+      {
+        "title": "Bulletproof Deep Linking",
+        "fix": "Links that work everywhere. Whether on iOS, Android, or Desktop—app installed or not—DeepURL routes users to the exact content they want instantly.",
+        "result": "Boost retention by 40%."
+      },
+      {
+        "title": "Precision Attribution",
+        "fix": "Track ROI, not just clicks. Stop guessing. Our hybrid tracking model solves the privacy puzzle (yes, even on iOS 14+), giving you accurate data to scale your best campaigns.",
+        "result": "Recover 94% of lost attribution data."
+      },
+      {
+        "title": "Full-Funnel Visibility",
+        "fix": "Bridge the Web-to-App gap. We don't stop at the store. We connect the dots from Ad Click → Install → Purchase, giving you a complete picture of your user's journey.",
+        "result": "See your True ROI instantly."
+      }
+    ]
+  },
+  "impact": {
+    "headline": "Results That Matter",
+    "subheadline": "Top brands use DeepURL to optimize their campaigns and improve customer experience.",
+    "stats": [
+      { "value": "3x", "label": "Increase in App Engagement", "description": "Top brands use DeepURL to optimize their campaigns" },
+      { "value": "180%", "label": "Growth in Mobile Revenue", "description": "Real results from real customers using DeepURL" },
+      { "value": "85%", "label": "Uplift in App Installs", "description": "Improve customer experience with seamless linking" },
+      { "value": "99.9%", "label": "Link Reliability", "description": "Ensure flawless experience across all devices" }
+    ]
+  },
+  "useCases": {
+    "headline": "Built for High-Growth Mobile Teams",
+    "cases": [
+      {
+        "title": "For E-Commerce",
+        "win": "Link directly to the Red Sneakers page inside the app. If they don't have the app, show them the web version or the App Store.",
+        "outcome": "3x Higher Average Order Value (AOV)."
+      },
+      {
+        "title": "For SaaS & Apps",
+        "win": "Create custom onboarding links. When a user clicks Sign Up in an email, they land directly inside the app, logged in and ready.",
+        "outcome": "60% Lower Customer Acquisition Cost (CAC)."
+      },
+      {
+        "title": "For Creators & Affiliates",
+        "win": "Give influencers branded links (brand.link/sarah) that track installs even after the user leaves Instagram or YouTube.",
+        "outcome": "Accurate payouts and happy affiliates."
+      }
+    ]
+  },
+  "comparison": {
+    "headline": "Why Modern Teams Switch to DeepURL",
+    "subheadline": "Legacy platforms are heavy, expensive, and complex. We built DeepURL for speed and simplicity.",
+    "rows": [
+      { "feature": "Routing Speed", "deepurl": "<100ms (Instant)", "competitors": "200ms+ (Slower)" },
+      { "feature": "Pricing", "deepurl": "Transparent & Fair", "competitors": "Contact Sales (Hidden)" },
+      { "feature": "Setup Time", "deepurl": "<1 Hour", "competitors": "Weeks of Integration" },
+      { "feature": "Privacy Model", "deepurl": "Next-Gen (PAM)", "competitors": "Retrofitted" }
+    ]
+  },
+  "howItWorks": {
+    "headline": "From Click to Conversion in 3 Steps",
+    "steps": [
+      { "title": "Create the Link", "description": "Use our dashboard or API to create a smart link for your ad, email, or QR code." },
+      { "title": "We Handle the Logic", "description": "When clicked, DeepURL instantly checks: Device? OS? App Installed? and routes the user perfectly." },
+      { "title": "You See the Data", "description": "Watch clicks turn into installs and revenue in your real-time dashboard." }
+    ]
+  },
+  "faq": {
+    "headline": "Everything You Need to Know",
+    "questions": [
+      {
+        "question": "What exactly is DeepURL?",
+        "answer": "DeepURL is a growth engine for your mobile app. It combines intelligent deep linking (routing users to the right content) with precise attribution (tracking where users came from). Think of us as the bridge that connects your marketing ads directly to your app's success."
+      },
+      {
+        "question": "Why does my app need DeepURL? What's the advantage?",
+        "answer": "Without DeepURL, you risk broken user journeys and blind data. The biggest advantages are: Higher Conversions (users land exactly on the product they clicked) and Clear ROI (you'll know exactly which ad, influencer, or email drove that install)."
+      },
+      {
+        "question": "Do I need a developer to use this?",
+        "answer": "Just once. Your developer adds our lightweight SDK (takes ~30 mins). After that, your marketing team can create unlimited smart links and track campaigns without writing a single line of code."
+      },
+      {
+        "question": "Do you offer a free plan or trial?",
+        "answer": "DeepURL is an enterprise-grade solution. We don't offer a generic free tier because every app's needs are unique. Instead, we invite you to Request a Demo. Our team will give you a personalized walkthrough and build a custom plan tailored specifically to your growth goals."
+      }
+    ]
+  },
+  "footerCta": {
+    "headline": "Ready to supercharge your growth?",
+    "description": "Join the thousands of apps using DeepURL to deliver seamless experiences and drive revenue.",
+    "buttonText": "Start Now",
+    "buttonLink": "#pricing"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "headline": "Plans that scale as fast as you do",
+  "subheadline": "Start with essential deep linking today, and upgrade to enterprise attribution when you're ready to dominate.",
+  "monthlyLabel": "Monthly",
+  "yearlyLabel": "Yearly",
+  "plans": [
+    {
+      "name": "Growth",
+      "description": "Professional deep linking infrastructure to power your user growth.",
+      "priceLabel": "STARTING AT",
+      "price": "$189",
+      "period": "/month",
+      "volume": "100k Monthly Active Users",
+      "highlighted": false,
+      "features": [
+        "Reliable Deep Linking (iOS/Android)",
+        "Custom Branded Links & QR Codes",
+        "Web-to-App Smart Banners"
+      ],
+      "ctaText": "Start now",
+      "ctaLink": "#"
+    },
+    {
+      "name": "Enterprise",
+      "description": "Unlock accurate attribution and full-funnel visibility across every channel.",
+      "priceLabel": "VOLUME PRICING",
+      "price": "Custom",
+      "period": "",
+      "volume": "Unlimited Scale & Support",
+      "highlighted": true,
+      "features": [
+        "Accurate Attribution (FB, Google, TikTok)",
+        "Privacy-Safe Predictive Modeling (PAM)",
+        "Fraud Protection & Raw Data Export"
+      ],
+      "ctaText": "Contact Sales",
+      "ctaLink": "#"
+    }
+  ]
+}
