@@ -100,7 +100,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "D:\\deeplinkss",
+    "outputFileTracingRoot": "D:\\deepurl-landing",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -158,7 +158,7 @@
       "proxyPrefetch": "flexible",
       "optimisticClientCache": true,
       "manualClientBasePath": false,
-      "cpus": 7,
+      "cpus": 15,
       "memoryBasedWorkersCount": false,
       "imgOptConcurrency": null,
       "imgOptTimeoutInSeconds": 7,
@@ -290,11 +290,11 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.mjs",
     "turbopack": {
-      "root": "D:\\deeplinkss"
+      "root": "D:\\deepurl-landing"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "D:\\deeplinkss",
+  "appDir": "D:\\deepurl-landing",
   "relativeAppDir": "",
   "files": [
     ".next\\routes-manifest.json",
