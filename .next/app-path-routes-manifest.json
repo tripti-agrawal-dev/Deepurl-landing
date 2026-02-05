@@ -1,6 +1,9 @@
 {
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
+  "/about/page": "/about",
+  "/contact/page": "/contact",
+  "/docs/page": "/docs",
   "/page": "/",
   "/privacy/page": "/privacy",
   "/terms/page": "/terms"

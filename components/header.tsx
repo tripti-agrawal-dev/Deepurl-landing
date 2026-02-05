@@ -23,18 +23,18 @@ export default function Header() {
           />
         </Link>
         <div className="hidden md:flex items-center gap-8">
-          <a href="#features" className="text-sm hover:text-accent transition">
+          <Link href="/#features" className="text-sm hover:text-accent transition">
             Features
-          </a>
-          <a href="#use-cases" className="text-sm hover:text-accent transition">
+          </Link>
+          <Link href="/#use-cases" className="text-sm hover:text-accent transition">
             Use Cases
-          </a>
-          <a href="#pricing" className="text-sm hover:text-accent transition">
+          </Link>
+          <Link href="/#pricing" className="text-sm hover:text-accent transition">
             Pricing
-          </a>
-          <a href="#faq" className="text-sm hover:text-accent transition">
+          </Link>
+          <Link href="/#faq" className="text-sm hover:text-accent transition">
             FAQ
-          </a>
+          </Link>
         </div>
 
         <div className="hidden md:flex items-center gap-4">
@@ -46,12 +46,12 @@ export default function Header() {
             Log in
           </a>
 
-          <a
-            href="#pricing"
+          <Link
+            href="/#pricing"
             className="px-6 py-2 bg-accent text-accent-foreground rounded-full text-sm font-medium hover:opacity-90 transition"
           >
             Request a Demo
-          </a>
+          </Link>
 
         </div>
 
@@ -62,18 +62,18 @@ export default function Header() {
 
       {isOpen && (
         <div className="md:hidden border-t border-border px-4 py-4 space-y-4">
-          <a href="#features" className="block text-sm hover:text-accent transition" onClick={() => setIsOpen(false)}>
+          <Link href="/#features" className="block text-sm hover:text-accent transition" onClick={() => setIsOpen(false)}>
             Features
-          </a>
-          <a href="#use-cases" className="block text-sm hover:text-accent transition" onClick={() => setIsOpen(false)}>
+          </Link>
+          <Link href="/#use-cases" className="block text-sm hover:text-accent transition" onClick={() => setIsOpen(false)}>
             Use Cases
-          </a>
-          <a href="#pricing" className="block text-sm hover:text-accent transition" onClick={() => setIsOpen(false)}>
+          </Link>
+          <Link href="/#pricing" className="block text-sm hover:text-accent transition" onClick={() => setIsOpen(false)}>
             Pricing
-          </a>
-          <a href="#faq" className="block text-sm hover:text-accent transition" onClick={() => setIsOpen(false)}>
+          </Link>
+          <Link href="/#faq" className="block text-sm hover:text-accent transition" onClick={() => setIsOpen(false)}>
             FAQ
-          </a>
+          </Link>
           <a
             href="https://dashboard.deepurls.com"
             target="_blank"
@@ -82,13 +82,13 @@ export default function Header() {
           >
             Log in
           </a>
-          <a
-            href="#pricing"
+          <Link
+            href="/#pricing"
             className="block w-full px-6 py-2 bg-accent text-accent-foreground rounded-full text-sm font-medium text-center"
             onClick={() => setIsOpen(false)}
           >
             Request a Demo
-          </a>
+          </Link>
         </div>
       )}
     </header>

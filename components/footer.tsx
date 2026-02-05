@@ -10,12 +10,12 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Product</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href="#" className="hover:text-foreground transition">
+                <Link href="/#features" className="hover:text-foreground transition">
                   Features
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-foreground transition">
+                <Link href="/#pricing" className="hover:text-foreground transition">
                   Pricing
                 </Link>
               </li>
@@ -30,7 +30,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Resources</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href="#" className="hover:text-foreground transition">
+                <Link href="/docs" className="hover:text-foreground transition">
                   Documentation
                 </Link>
               </li>
@@ -50,12 +50,12 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href="#" className="hover:text-foreground transition">
+                <Link href="/about" className="hover:text-foreground transition">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-foreground transition">
+                <Link href="/contact" className="hover:text-foreground transition">
                   Contact
                 </Link>
               </li>
