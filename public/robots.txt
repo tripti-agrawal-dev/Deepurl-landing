@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Hide blog pages from search engines
+Disallow: /blogs
+Disallow: /blog/

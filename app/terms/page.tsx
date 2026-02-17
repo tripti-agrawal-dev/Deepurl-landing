@@ -4,8 +4,8 @@ import Footer from "@/components/footer"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Terms of Service | DeepUrl: User Agreement & Legal",
-  description: "Read the official DeepUrl Terms of Service. Understand your rights, usage limits, and account responsibilities when using our deep linking platform.",
+  title: "Terms of Security | DeepUrl: User Agreement & Legal",
+  description: "Read the official DeepUrl Terms of Security. Understand your rights, usage limits, and account responsibilities when using our deep linking platform.",
 }
 
 export default function TermsPage() {
@@ -14,7 +14,7 @@ export default function TermsPage() {
       <Header />
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
         <div className="prose prose-lg max-w-none">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Terms of Service</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Terms of Security</h1>
           <p className="text-muted-foreground mb-8">
             <strong>Last Updated:</strong> January 12, 2026<br />
             <strong>Effective Date:</strong> January 12, 2026
@@ -23,7 +23,7 @@ export default function TermsPage() {
           <section className="mb-12">
             <h2 className="text-3xl font-bold mb-4">1. Introduction & Acceptance</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Welcome to DeepUrl. These Terms of Service ("Terms") constitute a legally binding agreement between DeepUrl Inc. ("DeepUrl," "we," "us," or "our") and you ("User," "you," or "Client").
+              Welcome to DeepUrl. These Terms of Security ("Terms") constitute a legally binding agreement between DeepUrl Inc. ("DeepUrl," "we," "us," or "our") and you ("User," "you," or "Client").
             </p>
             <p className="text-muted-foreground leading-relaxed mb-4">
               Please read these Terms carefully. They govern your access to and use of our website, API, SDKs, deep linking tools, and related services (collectively, the "Platform").

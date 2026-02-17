@@ -35,15 +35,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-foreground transition">
+                <Link href="/blogs" className="hover:text-foreground transition">
                   Blog
                 </Link>
               </li>
-              <li>
-                <Link href="#" className="hover:text-foreground transition">
-                  Support
-                </Link>
-              </li>
+
             </ul>
           </div>
           <div>
@@ -59,11 +55,7 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
-              <li>
-                <Link href="#" className="hover:text-foreground transition">
-                  Status
-                </Link>
-              </li>
+
             </ul>
           </div>
           <div>
@@ -76,12 +68,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/terms" className="hover:text-foreground transition">
-                  Terms
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-foreground transition">
-                  Security
+                  Terms of Security
                 </Link>
               </li>
             </ul>
@@ -91,15 +78,21 @@ export default function Footer() {
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <p className="text-sm text-muted-foreground">© 2025 DeepURL. All rights reserved.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="text-muted-foreground hover:text-foreground transition">
-                Twitter
+            <div className="flex flex-wrap gap-6 mt-4 md:mt-0">
+              <a href="https://www.facebook.com/share/1DdWxZSX2Z/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
+                Facebook
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition">
-                GitHub
+              <a href="https://x.com/Deepurltracking" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
+                X
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition">
-                LinkedIn
+              <a href="https://www.instagram.com/deepurltracking?igsh=dGY2ZXB5eTI0MjNw" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
+                Instagram
+              </a>
+              <a href="https://youtube.com/@deepurl-g2p?si=TLvkdKLfzrBdhi5z" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
+                YouTube
+              </a>
+              <a href="https://pin.it/5fINpzFyz" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
+                Pinterest
               </a>
             </div>
           </div>
