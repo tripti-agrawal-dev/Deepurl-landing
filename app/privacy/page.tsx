@@ -2,10 +2,12 @@ import type { Metadata } from "next"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Link from "next/link"
+import { canonical } from "@/lib/site-url"
 
 export const metadata: Metadata = {
   title: "DeepUrl Privacy Policy: Data Security & Compliance",
   description: "Understand DeepUrl's data framework. We explain our telemetry, API security, and storage protocols clearly. No legal jargon—just transparent privacy.",
+  alternates: { canonical: canonical("/privacy") },
 }
 
 export default function PrivacyPage() {

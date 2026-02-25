@@ -2,10 +2,12 @@ import type { Metadata } from "next"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import Link from "next/link"
+import { canonical } from "@/lib/site-url"
 
 export const metadata: Metadata = {
   title: "Terms of Security | DeepUrl: User Agreement & Legal",
   description: "Read the official DeepUrl Terms of Security. Understand your rights, usage limits, and account responsibilities when using our deep linking platform.",
+  alternates: { canonical: canonical("/terms") },
 }
 
 export default function TermsPage() {

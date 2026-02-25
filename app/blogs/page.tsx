@@ -4,18 +4,21 @@ import Footer from "@/components/footer"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import client from "@/tina/__generated__/client"
+import { canonical } from "@/lib/site-url"
 
 export const metadata: Metadata = {
   title: "Blog | DeepURL – Insights on Deep Linking & Mobile Attribution",
   description: "Discover tips, guides, and the latest news on deep linking, mobile attribution, and growing your app with DeepURL.",
+  alternates: { canonical: canonical("/blogs") },
 }
 
-// Fallback when Tina server is not available (e.g. static export without Tina running)
 const FALLBACK_POSTS = [
   {
     slug: "deep-linking-best-practices-2026",
     title: "Deep Linking Best Practices for 2026 (iOS, Android & Web)",
     excerpt: "Learn how to implement reliable deep links across platforms and avoid common pitfalls that hurt attribution.",
+    featuredImage: null as string | null,
+    featuredImageAlt: null as string | null,
   },
 ]
 
@@ -26,11 +29,13 @@ async function getPosts() {
     if (edges.length === 0) return FALLBACK_POSTS
     return edges.map((edge) => {
       const node = edge?.node
-      const slug = node?.slug ?? node?._sys?.filename ?? ""
+      const slug = node?._sys?.filename ?? node?.slug ?? ""
       return {
         slug,
         title: node?.title ?? "",
         excerpt: node?.excerpt ?? "",
+        featuredImage: node?.featuredImage ?? null,
+        featuredImageAlt: node?.featuredImageAlt ?? null,
       }
     }).filter((p) => p.slug && p.title)
   } catch {
@@ -42,10 +47,14 @@ function BlogCard({
   slug,
   title,
   excerpt,
+  featuredImage,
+  featuredImageAlt,
 }: {
   slug: string
   title: string
   excerpt: string
+  featuredImage?: string | null
+  featuredImageAlt?: string | null
 }) {
   return (
     <Link
@@ -53,12 +62,19 @@ function BlogCard({
       className="group block rounded-2xl bg-card border border-border overflow-hidden hover:border-accent/50 transition"
     >
       <div className="aspect-[4/3] bg-gradient-to-br from-muted via-muted/80 to-background relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent" />
+        {featuredImage ? (
+          <img
+            src={featuredImage}
+            alt={featuredImageAlt ?? title}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        ) : null}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-          <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+          <span className="text-xs font-medium text-white/90 uppercase tracking-wider">
             Read more
           </span>
-          <ArrowRight className="w-4 h-4 text-accent opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition" />
+          <ArrowRight className="w-4 h-4 text-white opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition" />
         </div>
       </div>
       <div className="p-6">
@@ -105,6 +121,8 @@ export default async function BlogsPage() {
               slug={post.slug}
               title={post.title}
               excerpt={post.excerpt}
+              featuredImage={post.featuredImage}
+              featuredImageAlt={post.featuredImageAlt}
             />
           ))}
         </div>

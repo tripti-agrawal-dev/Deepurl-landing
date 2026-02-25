@@ -178,6 +178,7 @@
 
 @layer theme {
   :root, :host {
+    --font-mono: "Geist Mono", "Geist Mono Fallback";
     --color-red-50: #fef2f2;
     --color-red-300: #ffa3a3;
     --color-red-400: #ff6568;
@@ -549,6 +550,10 @@
     visibility: hidden;
   }
 
+  .visible {
+    visibility: visible;
+  }
+
   .sr-only {
     clip-path: inset(50%);
     white-space: nowrap;
@@ -781,6 +786,10 @@
     margin-block: calc(var(--spacing) * 4);
   }
 
+  .my-6 {
+    margin-block: calc(var(--spacing) * 6);
+  }
+
   .-mt-4 {
     margin-top: calc(var(--spacing) * -4);
   }
@@ -839,6 +848,10 @@
 
   .mb-8 {
     margin-bottom: calc(var(--spacing) * 8);
+  }
+
+  .mb-10 {
+    margin-bottom: calc(var(--spacing) * 10);
   }
 
   .mb-12 {
@@ -937,6 +950,10 @@
 
   .aspect-\[4\/3\] {
     aspect-ratio: 4 / 3;
+  }
+
+  .aspect-\[21\/9\] {
+    aspect-ratio: 21 / 9;
   }
 
   .aspect-square {
@@ -1143,6 +1160,10 @@
 
   .min-h-16 {
     min-height: calc(var(--spacing) * 16);
+  }
+
+  .min-h-\[40vh\] {
+    min-height: 40vh;
   }
 
   .min-h-screen {
@@ -2078,6 +2099,20 @@
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
 
+  .from-black\/60 {
+    --tw-gradient-from: #0009;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .from-black\/60 {
+      --tw-gradient-from: color-mix(in oklab, var(--color-black) 60%, transparent);
+    }
+  }
+
+  .from-black\/60 {
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+
   .from-muted {
     --tw-gradient-from: var(--muted);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
@@ -2322,6 +2357,10 @@
 
   .fill-primary {
     fill: var(--primary);
+  }
+
+  .object-cover {
+    object-fit: cover;
   }
 
   .p-0 {
@@ -2723,6 +2762,16 @@
 
   .text-white {
     color: var(--color-white);
+  }
+
+  .text-white\/90 {
+    color: #ffffffe6;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .text-white\/90 {
+      color: color-mix(in oklab, var(--color-white) 90%, transparent);
+    }
   }
 
   .uppercase {
@@ -5942,6 +5991,113 @@
     --sidebar-border: lab(12.8242% 1.67494 -7.26859);
     --sidebar-ring: lab(57.947% 66.9543 -86.2068);
   }
+}
+
+.tina-content {
+  color: var(--foreground);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.tina-content > :first-child {
+  margin-top: 0;
+}
+
+.tina-content p {
+  margin-bottom: 1.25em;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.tina-content h1 {
+  margin-top: 1.5em;
+  margin-bottom: .5em;
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.tina-content h2 {
+  margin-top: 1.5em;
+  margin-bottom: .5em;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.tina-content h3 {
+  margin-top: 1.25em;
+  margin-bottom: .4em;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.tina-content h4, .tina-content h5, .tina-content h6 {
+  margin-top: 1em;
+  margin-bottom: .35em;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.tina-content ul, .tina-content ol {
+  margin-bottom: 1.25em;
+  padding-left: 1.5em;
+}
+
+.tina-content li {
+  margin-bottom: .35em;
+  font-size: 1rem;
+}
+
+.tina-content strong {
+  font-weight: 600;
+}
+
+.tina-content code {
+  font-size: .9em;
+  font-family: var(--font-mono);
+  background: var(--muted);
+  border-radius: .25rem;
+  padding: .15em .4em;
+}
+
+.tina-content a {
+  color: var(--accent);
+  text-underline-offset: 2px;
+  text-decoration: underline;
+}
+
+.tina-content blockquote {
+  border-left: 4px solid var(--border);
+  color: var(--muted-foreground);
+  margin: 1.25em 0;
+  padding-left: 1em;
+  font-style: normal;
+}
+
+.tina-content hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 1.5em 0;
+}
+
+.tina-content pre {
+  border-radius: var(--radius);
+  background: var(--muted);
+  margin: 1.25em 0;
+  padding: 1em;
+  font-size: .875rem;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+.tina-content pre code {
+  font-size: inherit;
+  background: none;
+  padding: 0;
 }
 
 @property --tw-translate-x {

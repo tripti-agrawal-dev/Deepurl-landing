@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "74174c9cf0d43d1ee63f7e2f9922d49e",
-    "previewModeSigningKey": "691ebd065638accf0167681a7a6b74da137f2ab37353861e1253a9697493af5e",
-    "previewModeEncryptionKey": "a1d842fbee24b7d7c222c6a17e95bc78409335715368e93e202975dd370a4835"
-  }
-}
+{"version":4,"routes":{"/blog/What-Is-Deep-Linking-Full-Guide-In-2026":{},"/blog/what-is-deep-linking":{}},"dynamicRoutes":{"/blog/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/blog/[slug]","routeRegex":"^\\/blog\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"d64549bcbd17f360a272379f3de6429e","previewModeSigningKey":"2b24cccb5c604cfe103e656cffdade9d378d762c74489579029790d27724fe38","previewModeEncryptionKey":"b0013927dfbc1f42db18fa22eb92e6efcf64c676b26ce00eba5a422d2856eee0"}}

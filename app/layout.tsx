@@ -2,12 +2,15 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { SITE_URL } from "@/lib/site-url"
 import "./globals.css"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  alternates: { canonical: "/" },
   title: "Mobile Attribution & Deep Linking Platform | DeepURL",
   description: "Drive app growth with DeepURL's precise mobile attribution and seamless deep linking. Track every click, maximize ROI, and unify cross-platform journeys.",
   generator: "DeepURL Platform",
