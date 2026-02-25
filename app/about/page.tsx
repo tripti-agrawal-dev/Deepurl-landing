@@ -4,11 +4,13 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Zap, Route, BarChart3, Shield } from "lucide-react"
+import { canonical } from "@/lib/site-url"
 
 export const metadata: Metadata = {
   title: "About DeepURL | The Engine Behind Flawless Mobile Growth",
   description:
     "We built DeepURL to fix broken user journeys. See how we combine <100ms routing speed with privacy-safe attribution to turn clicks into loyal customers.",
+  alternates: { canonical: canonical("/about") },
 }
 
 export default function AboutPage() {

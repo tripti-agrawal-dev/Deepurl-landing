@@ -9,5 +9,7 @@
   "/docs/page": "app/docs/page.js",
   "/page": "app/page.js",
   "/privacy/page": "app/privacy/page.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/support/page": "app/support/page.js",
   "/terms/page": "app/terms/page.js"
 }

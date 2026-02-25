@@ -3,11 +3,13 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { BookOpen, Settings, Link2, Smartphone, Code, BarChart3 } from "lucide-react"
+import { canonical } from "@/lib/site-url"
 
 export const metadata: Metadata = {
   title: "Deep Link Integration Documentation | DeepURL",
   description:
     "End-to-end guide to integrate smart deep links across Web, Android, and iOS.",
+  alternates: { canonical: canonical("/docs") },
 }
 
 function CodeBlock({ children }: { children: React.ReactNode }) {

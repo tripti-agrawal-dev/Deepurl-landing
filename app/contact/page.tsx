@@ -3,11 +3,13 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { ContactForm } from "@/components/contact-form"
 import { Mail } from "lucide-react"
+import { canonical } from "@/lib/site-url"
 
 export const metadata: Metadata = {
   title: "Contact DeepURL | Get in Touch",
   description:
     "Connect with DeepURL. Whether for enterprise solutions, technical support, or media inquiries, our team in Hong Kong is ready to assist you.",
+  alternates: { canonical: canonical("/contact") },
 }
 
 export default function ContactPage() {

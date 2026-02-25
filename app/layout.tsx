@@ -2,7 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { SITE_URL } from "@/lib/site-url"
+import { SITE_URL, canonical } from "@/lib/site-url"
+import RedirectInvalidRoute from "@/components/redirect-invalid-route"
 import "./globals.css"
 
 const _geist = Geist({ subsets: ["latin"] })
@@ -10,7 +11,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  alternates: { canonical: "/" },
+  alternates: { canonical: canonical("/") },
   title: "Mobile Attribution & Deep Linking Platform | DeepURL",
   description: "Drive app growth with DeepURL's precise mobile attribution and seamless deep linking. Track every click, maximize ROI, and unify cross-platform journeys.",
   generator: "DeepURL Platform",
@@ -61,6 +62,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
             }}
           />
         </noscript>
+        <RedirectInvalidRoute />
         {children}
         <Analytics />
       </body>

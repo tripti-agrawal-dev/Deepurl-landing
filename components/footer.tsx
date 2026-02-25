@@ -4,10 +4,10 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-
+        <h2 className="sr-only">Site map</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           <div>
-            <h4 className="font-semibold mb-4">Product</h4>
+            <h3 className="font-semibold mb-4">Product</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link href="/#features" className="hover:text-foreground transition">
@@ -27,7 +27,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Resources</h4>
+            <h3 className="font-semibold mb-4">Resources</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link href="/docs" className="hover:text-foreground transition">
@@ -39,11 +39,10 @@ export default function Footer() {
                   Blog
                 </Link>
               </li>
-
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Company</h4>
+            <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link href="/about" className="hover:text-foreground transition">
@@ -59,7 +58,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-4">Legal</h4>
+            <h3 className="font-semibold mb-4">Legal</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
                 <Link href="/privacy" className="hover:text-foreground transition">
@@ -69,6 +68,11 @@ export default function Footer() {
               <li>
                 <Link href="/terms" className="hover:text-foreground transition">
                   Terms of Security
+                </Link>
+              </li>
+              <li>
+                <Link href="/support" className="hover:text-foreground transition">
+                  Support
                 </Link>
               </li>
             </ul>

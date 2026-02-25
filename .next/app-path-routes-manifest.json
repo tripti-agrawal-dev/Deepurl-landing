@@ -9,5 +9,7 @@
   "/docs/page": "/docs",
   "/page": "/",
   "/privacy/page": "/privacy",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/support/page": "/support",
   "/terms/page": "/terms"
 }

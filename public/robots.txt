@@ -4,3 +4,6 @@ Allow: /
 # Hide blog pages from search engines
 Disallow: /blogs
 Disallow: /blog/
+
+# Sitemap (update domain if different)
+Sitemap: https://www.deepurl.com/sitemap.xml

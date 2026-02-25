@@ -1,0 +1,22 @@
+# DeepURL
+
+DeepURL is a mobile attribution and deep linking platform. We help businesses drive app growth with precise attribution and seamless deep links across iOS, Android, and web.
+
+## Main pages
+
+- Home: /
+- About: /about
+- Contact: /contact
+- Documentation: /docs
+- Blog: /blogs
+- Privacy Policy: /privacy
+- Terms of Security: /terms
+
+## Product
+
+- Deep linking for iOS, Android, and web
+- Mobile attribution and campaign tracking
+- Custom branded links and QR codes
+- Web-to-app smart banners
+
+For more information, visit the site or contact via the contact page.
