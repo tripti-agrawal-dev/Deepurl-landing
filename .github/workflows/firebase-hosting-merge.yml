@@ -1,0 +1,40 @@
+name: Deploy to Meetcatch Landing
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create .env.local file
+        run: |
+          echo "NEXT_PUBLIC_TINA_CLIENT_ID=${{ vars.NEXT_PUBLIC_TINA_CLIENT_ID }}" >> .env.local
+          echo "TINA_TOKEN=${{ vars.TINA_TOKEN }}" >> .env.local
+          echo "NEXT_PUBLIC_TINA_BRANCH=${{ vars.NEXT_PUBLIC_TINA_BRANCH }}" >> .env.local
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Tina CMS admin (for /admin on deployed site)
+        run: npm run build:tina
+
+      - name: Build project
+        env:
+          NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
+          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+          NEXT_PUBLIC_TINA_BRANCH: ${{ github.ref_name }}
+        run: npm run build
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          channelId: live
+          projectId: v3deeplinks
