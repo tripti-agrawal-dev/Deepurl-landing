@@ -100,7 +100,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "D:\\deepurl-landing",
+    "outputFileTracingRoot": "C:\\Users\\Lakshay",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -290,12 +290,12 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.mjs",
     "turbopack": {
-      "root": "D:\\deepurl-landing"
+      "root": "C:\\Users\\Lakshay"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "D:\\deepurl-landing",
-  "relativeAppDir": "",
+  "appDir": "C:\\Users\\Lakshay\\deepurl-landing",
+  "relativeAppDir": "deepurl-landing",
   "files": [
     ".next\\routes-manifest.json",
     ".next\\server\\pages-manifest.json",

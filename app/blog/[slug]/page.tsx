@@ -12,6 +12,15 @@ import BlogBody from "@/components/blog-body"
 
 const FALLBACK_SLUG = "deep-linking-best-practices-2026"
 
+const SLUG_TO_FILENAME: Record<string, string> = {
+  "what-is-deep-linking": "What-Is-Deep-Linking-Full-Guide-In-2026",
+  "deep-linking-best-practices": "DEEP-LINKING-BEST-PRACTICES-Unlock-3x-Conversion-Uplifts-for-US-App-Marketers-",
+  "deep-linking-vs-universal-links": "Deep-Linking-vs-Universal-Links",
+  "how-app-attribution-works": "How-App-Attribution-Works",
+  "how-deferred-deep-linking-works": "How-Deferred-Deep-Linking-Works",
+  "mobile-attribution-explained": "Mobile-Attribution-Explained",
+}
+
 type Props = { params: Promise<{ slug: string }> }
 
 async function getSlugs(): Promise<{ slug: string }[]> {
@@ -21,7 +30,7 @@ async function getSlugs(): Promise<{ slug: string }[]> {
     const edges = res.data?.postConnection?.edges ?? []
     const fromTina = edges.length === 0 ? [{ slug: FALLBACK_SLUG }] : edges.map((edge) => {
       const node = edge?.node
-      const slug = node?._sys?.filename ?? node?.slug ?? ""
+      const slug = node?.slug ?? node?._sys?.filename ?? ""
       return { slug }
     }).filter((p) => p.slug)
     return [...redirectSlugs, ...fromTina]
@@ -37,7 +46,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   try {
-    const res = await client.queries.post({ relativePath: `${slug}.mdx` })
+    const filename = SLUG_TO_FILENAME[slug] ?? slug
+    const res = await client.queries.post({ relativePath: `${filename}.mdx` })
     const post = res.data?.post
     if (!post) return { title: "Blog | DeepURL", alternates: { canonical: canonical(`/blog/${slug}`) } }
     const meta = post.seo
@@ -66,10 +76,10 @@ export default async function BlogPostPage({ params }: Props) {
     featuredImageAlt?: string | null
   } | null = null
   try {
-    const res = await client.queries.post({ relativePath: `${slug}.mdx` })
+    const filename = SLUG_TO_FILENAME[slug] ?? slug
+    const res = await client.queries.post({ relativePath: `${filename}.mdx` })
     post = res.data?.post ?? null
   } catch {
-    // fallback for static export when Tina not running: show placeholder for known demo slug
     if (slug === FALLBACK_SLUG) {
       post = {
         title: "Deep Linking Best Practices for 2026 (iOS, Android & Web)",

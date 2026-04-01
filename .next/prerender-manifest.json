@@ -127,7 +127,7 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/blog/what-is-deep-linking": {
+    "/blog/DEEP-LINKING-BEST-PRACTICES-Unlock-3x-Conversion-Uplifts-for-US-App-Marketers-": {
       "experimentalBypassFor": [
         {
           "type": "header",
@@ -141,7 +141,132 @@
       ],
       "initialRevalidateSeconds": false,
       "srcRoute": "/blog/[slug]",
-      "dataRoute": "/blog/what-is-deep-linking.rsc",
+      "dataRoute": "/blog/DEEP-LINKING-BEST-PRACTICES-Unlock-3x-Conversion-Uplifts-for-US-App-Marketers-.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/blog/Deep-Linking-vs-Universal-Links": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/blog/[slug]",
+      "dataRoute": "/blog/Deep-Linking-vs-Universal-Links.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/blog/How-App-Attribution-Works": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/blog/[slug]",
+      "dataRoute": "/blog/How-App-Attribution-Works.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/blog/How-Deferred-Deep-Linking-Works": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/blog/[slug]",
+      "dataRoute": "/blog/How-Deferred-Deep-Linking-Works.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/blog/Mobile-Attribution-Explained": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/blog/[slug]",
+      "dataRoute": "/blog/Mobile-Attribution-Explained.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/blog/What-Is-Deep-Linking-Full-Guide-In-2026": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/blog/[slug]",
+      "dataRoute": "/blog/What-Is-Deep-Linking-Full-Guide-In-2026.rsc",
       "prefetchDataRoute": null,
       "allowHeader": [
         "host",
@@ -389,8 +514,8 @@
   },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "febda3f2068d12be61c1e660b44dc585",
-    "previewModeSigningKey": "6a61ab3d590d0559c4cec63e9edcbe0923afc5b07171174167af22474c0b78b7",
-    "previewModeEncryptionKey": "a81345f9475c6a39ac07cfe5299cfbe3bfcc1cf3153b12822f46223888fbd730"
+    "previewModeId": "f8f8ef2afaca322fddff309e9a9d619c",
+    "previewModeSigningKey": "976b0a46bd741f49b289732c6438cd576e5cc2fdebf124763097e28ee5989992",
+    "previewModeEncryptionKey": "7fa5281545a486914f268c2ec1109c875a96f0eb3c16dee6fd64fbd8c2aa90d9"
   }
 }
