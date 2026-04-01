@@ -14,13 +14,13 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/deepUrlLogo.png"
-            alt="DeepURL Logo"
-            width={110}
-            height={32}
-            className="rounded scale-150 origin-left"
-            priority
-          />
+  src="/DurlBranding.png"
+  alt="DeepURL Logo"
+  width={165}
+  height={48}
+  className="mix-blend-multiply"
+  priority
+/>
         </Link>
         <div className="hidden md:flex items-center gap-8">
           <Link href="/#features" className="text-sm hover:text-accent transition">
