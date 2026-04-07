@@ -29,7 +29,7 @@ async function getPosts() {
     if (edges.length === 0) return FALLBACK_POSTS
     return edges.map((edge) => {
       const node = edge?.node
-      const slug = node?._sys?.filename ?? node?.slug ?? ""
+      const slug = node?.slug ?? node?._sys?.filename ?? ""
       return {
         slug,
         title: node?.title ?? "",

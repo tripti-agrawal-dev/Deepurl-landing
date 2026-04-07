@@ -10,7 +10,7 @@ import { BLOG_SLUG_REDIRECTS } from "@/lib/blog-redirects"
 import RedirectClient from "@/components/redirect-client"
 import BlogBody from "@/components/blog-body"
 
-const FALLBACK_SLUG = "deep-linking-best-practices-2026"
+const FALLBACK_SLUG = "deep-linking-best-practices"
 
 const SLUG_TO_FILENAME: Record<string, string> = {
   "what-is-deep-linking": "What-Is-Deep-Linking-Full-Guide-In-2026",
@@ -24,15 +24,25 @@ const SLUG_TO_FILENAME: Record<string, string> = {
 type Props = { params: Promise<{ slug: string }> }
 
 async function getSlugs(): Promise<{ slug: string }[]> {
-  const redirectSlugs = Object.keys(BLOG_SLUG_REDIRECTS).map((slug) => ({ slug }))
+  const redirectSlugs = [
+    ...Object.keys(BLOG_SLUG_REDIRECTS),
+    ...Object.values(BLOG_SLUG_REDIRECTS),
+  ].map((slug) => ({ slug }))
+
   try {
     const res = await client.queries.postConnection({ first: 100 })
     const edges = res.data?.postConnection?.edges ?? []
-    const fromTina = edges.length === 0 ? [{ slug: FALLBACK_SLUG }] : edges.map((edge) => {
-      const node = edge?.node
-      const slug = node?.slug ?? node?._sys?.filename ?? ""
-      return { slug }
-    }).filter((p) => p.slug)
+    const fromTina =
+      edges.length === 0
+        ? [{ slug: FALLBACK_SLUG }]
+        : edges
+            .map((edge) => {
+              const node = edge?.node
+              // Standardize on slug first, then filename
+              const slug = node?.slug ?? node?._sys?.filename ?? ""
+              return { slug }
+            })
+            .filter((p) => p.slug)
     return [...redirectSlugs, ...fromTina]
   } catch {
     return [...redirectSlugs, { slug: FALLBACK_SLUG }]
@@ -45,20 +55,30 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
+  const cleanSlug = BLOG_SLUG_REDIRECTS[slug] ?? slug
+  const canonicalUrl = canonical(`/blog/${cleanSlug}`)
+
   try {
     const filename = SLUG_TO_FILENAME[slug] ?? slug
     const res = await client.queries.post({ relativePath: `${filename}.mdx` })
     const post = res.data?.post
-    if (!post) return { title: "Blog | DeepURL", alternates: { canonical: canonical(`/blog/${slug}`) } }
+    if (!post) {
+      return {
+        title: "Blog | DeepURL",
+        alternates: { canonical: canonicalUrl },
+      }
+    }
     const meta = post.seo
-    const canonicalUrl = canonical(`/blog/${slug}`)
     return {
       title: meta?.metaTitle ?? `${post.title} | DeepURL Blog`,
       description: meta?.metaDescription ?? post.excerpt ?? "Read more on the DeepURL blog.",
       alternates: { canonical: canonicalUrl },
     }
   } catch {
-    return { title: "Blog | DeepURL", alternates: { canonical: canonical(`/blog/${slug}`) } }
+    return {
+      title: "Blog | DeepURL",
+      alternates: { canonical: canonicalUrl },
+    }
   }
 }
 
@@ -114,7 +134,7 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         )}
         {post.body != null && (Array.isArray(post.body) || (typeof post.body === "object" && post.body !== null && "children" in post.body)) ? (
-          <BlogBody content={post.body} />
+          <BlogBody content={post.body as any} />
         ) : post.body != null ? (
           <p className="text-muted-foreground">Content format not supported.</p>
         ) : (
