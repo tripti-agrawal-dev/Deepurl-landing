@@ -1,62 +1,69 @@
-import { ShoppingBag, Briefcase, Users } from "lucide-react"
+import Link from "next/link"
+import { ArrowRight, Briefcase, ShoppingBag, Users } from "lucide-react"
+import SectionHeading from "@/components/section-heading"
 
-const useCases = [
+export const useCases = [
   {
-    title: "For E-Commerce",
-    win: "Link directly to the Red Sneakers page inside the app. If they don't have the app, show them the web version or the App Store.",
-    outcome: "3x Higher Average Order Value (AOV).",
+    id: "e-commerce",
+    title: "E-commerce",
     icon: ShoppingBag,
+    tint: "tint-peach",
+    chip: "shop.link/red-runner",
+    win: "Link directly to the red sneakers page inside the app. If the shopper doesn't have the app, show the web version or the App Store.",
+    outcome: "3x higher average order value.",
   },
   {
-    title: "For SaaS & Apps",
-    win: "Create custom onboarding links. When a user clicks Sign Up in an email, they land directly inside the app, logged in and ready.",
-    outcome: "60% Lower Customer Acquisition Cost (CAC).",
+    id: "saas",
+    title: "SaaS and apps",
     icon: Briefcase,
+    tint: "tint-lavender",
+    chip: "app.link/welcome?user=ana",
+    win: "Create custom onboarding links. When someone clicks Sign up in an email, they land inside the app, logged in and ready.",
+    outcome: "60% lower customer acquisition cost.",
   },
   {
-    title: "For Creators & Affiliates",
+    id: "creators",
+    title: "Creators and affiliates",
+    icon: Users,
+    tint: "tint-mint",
+    chip: "brand.link/sarah",
     win: "Give influencers branded links (brand.link/sarah) that track installs even after the user leaves Instagram or YouTube.",
     outcome: "Accurate payouts and happy affiliates.",
-    icon: Users,
   },
 ]
 
 export default function UseCases() {
   return (
-    <section id="use-cases" className="py-20 md:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Built for{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              High-Growth Mobile Teams
-            </span>
-          </h2>
+    <section id="use-cases" className="scroll-mt-20 py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <SectionHeading align="left" title="Built for high-growth mobile teams" />
+          <Link href="/use-cases" className="inline-flex items-center gap-2 text-sm font-medium hover:text-accent">
+            See all use cases
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
           {useCases.map((useCase) => {
             const Icon = useCase.icon
             return (
-              <div
-                key={useCase.title}
-                className="group relative bg-card border border-border rounded-xl p-8 hover:border-accent/50 transition"
+              <article
+                key={useCase.id}
+                className="flex flex-col card-lift card-lift rounded-3xl border border-border bg-card p-4"
               >
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-accent/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition" />
-                <div className="relative space-y-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                    <Icon size={24} className="text-accent" />
-                  </div>
-                  <h3 className="text-xl font-bold">{useCase.title}</h3>
-                  <div>
-                    <p className="font-medium mb-2">The Win:</p>
-                    <p className="text-muted-foreground mb-4">{useCase.win}</p>
-                  </div>
-                  <div className="pt-4 border-t border-border">
-                    <p className="font-semibold text-primary">Outcome: {useCase.outcome}</p>
-                  </div>
+                <div className={`${useCase.tint} relative flex h-36 flex-col justify-between overflow-hidden rounded-2xl p-4`} aria-hidden="true">
+                  <span className="flex size-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                    <Icon className="size-5" />
+                  </span>
+                  <span className="w-fit rounded-full border border-white/80 bg-white/80 px-3 py-1.5 font-mono text-xs text-foreground/80 shadow-soft">
+                    {useCase.chip}
+                  </span>
                 </div>
-              </div>
+                <h3 className="mt-5 px-3 font-display text-2xl font-semibold tracking-tight">{useCase.title}</h3>
+                <p className="mt-3 flex-1 px-3 leading-relaxed text-muted-foreground">{useCase.win}</p>
+                <p className="mt-6 mx-3 mb-2 border-t border-border pt-4 font-medium">{useCase.outcome}</p>
+              </article>
             )
           })}
         </div>

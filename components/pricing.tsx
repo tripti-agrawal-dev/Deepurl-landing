@@ -1,99 +1,100 @@
-import { Check, ArrowRight } from "lucide-react"
+import Link from "next/link"
+import { ArrowRight, Check } from "lucide-react"
+import SectionHeading from "@/components/section-heading"
+import { cn } from "@/lib/utils"
+import { DEMO_URL } from "@/lib/site-nav"
 
 const plans = [
   {
     name: "Growth",
-    label: "STARTING AT",
+    label: "Starting at",
     price: "$189",
     period: "/month",
-    volume: "100k Monthly Active Users",
+    volume: "100k monthly active users",
     description: "Professional deep linking infrastructure to power your user growth.",
     features: [
-      "Reliable Deep Linking (iOS/Android)",
-      "Custom Branded Links & QR Codes",
-      "Web-to-App Smart Banners",
+      "Reliable deep linking (iOS and Android)",
+      "Custom branded links and QR codes",
+      "Web-to-app smart banners",
     ],
     cta: "Start now",
     highlight: false,
   },
   {
     name: "Enterprise",
-    label: "VOLUME PRICING",
+    label: "Volume pricing",
     price: "Custom",
     period: "",
-    volume: "Unlimited Scale & Support",
+    volume: "Unlimited scale and support",
     description: "Unlock accurate attribution and full-funnel visibility across every channel.",
     features: [
-      "Accurate Attribution (FB, Google, TikTok)",
-      "Privacy-Safe Predictive Modeling (PAM)",
-      "Fraud Protection & Raw Data Export",
+      "Accurate attribution (Facebook, Google, TikTok)",
+      "Privacy-safe predictive modeling (PAM)",
+      "Fraud protection and raw data export",
     ],
-    cta: "Contact Sales",
+    cta: "Contact sales",
     highlight: true,
-    showArrow: true,
   },
 ]
 
-export default function Pricing() {
+export default function Pricing({ heading = true }: { heading?: boolean }) {
   return (
-    <section id="pricing" className="py-20 md:py-32 bg-muted/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Plans that scale as fast as{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">you do</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Start with essential deep linking today, and upgrade to enterprise attribution when you're ready to dominate.
-          </p>
-        </div>
+    <section id="pricing" className="scroll-mt-20 py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {heading && (
+          <SectionHeading
+            title="Plans that scale as fast as you do"
+            description="Start with essential deep linking today, and move to enterprise attribution when you're ready."
+          />
+        )}
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className={cn("mx-auto grid max-w-4xl gap-4 md:grid-cols-2", heading && "mt-14")}>
           {plans.map((plan) => (
-            <div
+            <article
               key={plan.name}
-              className={`relative rounded-2xl transition ${
-                plan.highlight
-                  ? "bg-card border-2 border-accent shadow-lg md:scale-105"
-                  : "bg-card border border-border hover:border-accent/50"
-              }`}
+              className={cn(
+                "flex flex-col rounded-3xl p-8 md:p-10",
+                plan.highlight ? "panel-aurora ring-1 ring-accent/30" : "card-lift border border-border bg-card",
+              )}
             >
-              <div className="p-8">
-                <div className="mb-4">
-                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
-                    {plan.label}
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <p className="text-muted-foreground text-sm mb-6">{plan.description}</p>
+              <p className={cn("text-sm", "text-muted-foreground")}>{plan.label}</p>
+              <h3 className="mt-1 font-display text-2xl font-semibold tracking-tight">{plan.name}</h3>
 
-                <div className="mb-4">
-                  <span className="text-4xl font-bold">{plan.price}</span>
-                  {plan.period && <span className="text-muted-foreground">{plan.period}</span>}
-                </div>
-                <p className="text-sm text-muted-foreground mb-6">{plan.volume}</p>
+              <p className="mt-6">
+                <span className="font-display text-5xl font-semibold tracking-tight">{plan.price}</span>
+                {plan.period && (
+                  <span className={"text-muted-foreground"}>{plan.period}</span>
+                )}
+              </p>
+              <p className={cn("mt-1 text-sm", "text-muted-foreground")}>{plan.volume}</p>
 
-                <button
-                  className={`w-full py-3 rounded-lg font-medium transition mb-8 flex items-center justify-center gap-2 ${
-                    plan.highlight
-                      ? "bg-accent text-accent-foreground hover:opacity-90"
-                      : "bg-primary text-primary-foreground hover:opacity-90"
-                  }`}
-                >
-                  {plan.cta}
-                  {plan.showArrow && <ArrowRight size={18} />}
-                </button>
+              <p className={cn("mt-6 leading-relaxed", "text-muted-foreground")}>
+                {plan.description}
+              </p>
 
-                <div className="space-y-4">
-                  {plan.features.map((feature) => (
-                    <div key={feature} className="flex items-start gap-3">
-                      <Check size={18} className="text-accent mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+              <ul className="mt-6 flex-1 space-y-3">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3 text-sm">
+                    <Check
+                      className={cn("mt-0.5 size-4 shrink-0", "text-accent")}
+                      aria-hidden="true"
+                    />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <Link
+                href={DEMO_URL}
+                className={cn(
+                  "mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-full text-sm font-medium transition",
+                  "btn-primary text-primary-foreground",
+                )}
+              >
+                {plan.cta}
+                {plan.highlight && <ArrowRight className="size-4" aria-hidden="true" />}
+              </Link>
+            </article>
           ))}
         </div>
       </div>

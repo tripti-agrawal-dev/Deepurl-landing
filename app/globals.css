@@ -4,37 +4,42 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.98 0 0);
-  --foreground: oklch(0.15 0.02 280);
+  --background: oklch(0.985 0.009 75);
+  --foreground: oklch(0.2 0.045 280);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.15 0.02 280);
+  --card-foreground: oklch(0.18 0.03 275);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.02 280);
-  --primary: oklch(0.35 0.21 280);
-  --primary-foreground: oklch(0.98 0 0);
-  --accent: oklch(0.62 0.28 300);
+  --popover-foreground: oklch(0.18 0.03 275);
+  --primary: oklch(0.22 0.05 280);
+  --primary-foreground: oklch(0.99 0 0);
+  --accent: oklch(0.5 0.21 275);
   --accent-foreground: oklch(1 0 0);
-  --secondary: oklch(0.92 0.02 280);
-  --secondary-foreground: oklch(0.35 0.21 280);
-  --muted: oklch(0.92 0.01 280);
-  --muted-foreground: oklch(0.56 0.08 280);
-  --border: oklch(0.88 0.01 280);
-  --input: oklch(0.92 0.01 280);
-  --ring: oklch(0.62 0.28 300);
-  --chart-1: oklch(0.62 0.28 300);
-  --chart-2: oklch(0.35 0.21 280);
-  --chart-3: oklch(0.75 0.18 280);
-  --chart-4: oklch(0.55 0.25 290);
-  --chart-5: oklch(0.68 0.22 305);
-  --radius: 0.625rem;
+  --secondary: oklch(0.958 0.016 75);
+  --secondary-foreground: oklch(0.19 0.03 275);
+  --muted: oklch(0.955 0.012 75);
+  --muted-foreground: oklch(0.44 0.035 280);
+  --border: oklch(0.9 0.014 75);
+  --input: oklch(0.9 0.014 75);
+  --ring: oklch(0.5 0.21 275);
+  --chart-1: oklch(0.58 0.19 265);
+  --chart-2: oklch(0.19 0.03 275);
+  --chart-3: oklch(0.78 0.1 310);
+  --chart-4: oklch(0.7 0.14 50);
+  --chart-5: oklch(0.68 0.16 265);
+  --radius: 0.75rem;
+  --peach: oklch(0.94 0.05 55);
+  --coral: oklch(0.7 0.16 45);
+  --teal: oklch(0.72 0.12 195);
+  --mist: oklch(0.945 0.03 285);
+  --lavender: oklch(0.9 0.06 310);
   --sidebar: oklch(0.98 0 0);
-  --sidebar-foreground: oklch(0.15 0.02 280);
-  --sidebar-primary: oklch(0.35 0.21 280);
+  --sidebar-foreground: oklch(0.18 0.03 275);
+  --sidebar-primary: oklch(0.19 0.03 275);
   --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.62 0.28 300);
+  --sidebar-accent: oklch(0.58 0.19 265);
   --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.88 0.01 280);
-  --sidebar-ring: oklch(0.62 0.28 300);
+  --sidebar-border: oklch(0.92 0.008 80);
+  --sidebar-ring: oklch(0.58 0.19 265);
 }
 
 .dark {
@@ -71,7 +76,13 @@
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback";
+  --font-sans: var(--font-geist), "Geist", system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --color-coral: var(--coral);
+  --color-teal: var(--teal);
+  --color-mist: var(--mist);
+  --color-peach: var(--peach);
+  --color-lavender: var(--lavender);
   --font-mono: "Geist Mono", "Geist Mono Fallback";
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -116,6 +127,91 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ---------- DeepURL design system ---------- */
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  h1, h2 { font-family: var(--font-fraunces), Georgia, serif; font-weight: 500; letter-spacing: -0.025em; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+}
+
+/* Warm paper, a peach glow from the top left and a lavender one from the right.
+   Matches the reference heroes: soft, light, no hard gradients. */
+.hero-wash {
+  background:
+    radial-gradient(55% 60% at 8% 0%, oklch(0.93 0.07 55 / 0.95), transparent 70%),
+    radial-gradient(45% 55% at 95% 15%, oklch(0.9 0.07 295 / 0.75), transparent 70%),
+    radial-gradient(60% 40% at 50% 100%, oklch(0.95 0.035 255 / 0.6), transparent 70%);
+}
+
+/* faint grid, fades out toward the edges (dub.co style) */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, oklch(0.2 0.045 280 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.2 0.045 280 / 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 30%, transparent 75%);
+}
+
+/* the arch from the reference designs, used once behind the hero tester */
+.arch {
+  border-radius: 999px 999px 1.5rem 1.5rem;
+  background: linear-gradient(180deg, oklch(0.86 0.11 50) 0%, oklch(0.92 0.07 60) 55%, oklch(0.95 0.04 70) 100%);
+}
+
+/* Light "aurora" panel: replaces the old dark panels. Ink text on a soft peach to lavender wash. */
+.panel-aurora {
+  background:
+    radial-gradient(70% 90% at 0% 0%, oklch(0.93 0.07 55 / 0.85), transparent 65%),
+    radial-gradient(60% 80% at 100% 100%, oklch(0.9 0.08 290 / 0.8), transparent 65%),
+    oklch(0.985 0.01 75);
+  border: 1px solid oklch(0.9 0.02 75);
+  box-shadow: 0 1px 0 oklch(1 0 0) inset, 0 30px 60px -30px oklch(0.4 0.1 280 / 0.25);
+}
+
+.glass {
+  background: oklch(1 0 0 / 0.78);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  backdrop-filter: blur(14px) saturate(1.4);
+}
+
+.shadow-soft { box-shadow: 0 1px 0 oklch(1 0 0) inset, 0 1px 2px oklch(0.2 0.045 280 / 0.07), 0 12px 32px -12px oklch(0.3 0.08 280 / 0.2); }
+.shadow-float { box-shadow: 0 1px 0 oklch(1 0 0) inset, 0 2px 4px oklch(0.2 0.045 280 / 0.06), 0 30px 60px -20px oklch(0.35 0.12 280 / 0.32); }
+
+ /* Premium interaction layer */
+.btn-primary {
+  background: linear-gradient(180deg, oklch(0.3 0.06 280), oklch(0.2 0.05 280));
+  box-shadow: 0 1px 0 oklch(1 0 0 / 0.18) inset, 0 6px 16px -6px oklch(0.25 0.08 280 / 0.55);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+.btn-primary:hover { transform: translateY(-1px); filter: brightness(1.15); box-shadow: 0 1px 0 oklch(1 0 0 / 0.2) inset, 0 12px 24px -8px oklch(0.35 0.14 280 / 0.6); }
+.btn-primary:active { transform: translateY(0); }
+.btn-ghost { transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.btn-ghost:hover { transform: translateY(-1px); border-color: oklch(0.5 0.21 275 / 0.5); box-shadow: 0 8px 20px -10px oklch(0.4 0.15 280 / 0.35); }
+.card-lift { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.card-lift:hover { transform: translateY(-3px); border-color: oklch(0.5 0.21 275 / 0.35); box-shadow: 0 1px 0 oklch(1 0 0) inset, 0 24px 48px -24px oklch(0.4 0.14 280 / 0.35); }
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary, .btn-ghost, .card-lift { transition: none; }
+  .btn-primary:hover, .btn-ghost:hover, .card-lift:hover { transform: none; }
+}
+
+/* Link tester: route lanes resolve one after another when a test runs */
+@keyframes lane-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes route-draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+/* the one page-load moment: the hero route draws itself once */
+@keyframes route-run { to { stroke-dashoffset: 0; } }
+.lane-in { animation: lane-in .45s cubic-bezier(.2,.8,.2,1) both; }
+.route-draw { stroke-dasharray: 100; animation: route-draw .7s ease-out both; }
+.route-run { stroke-dasharray: 100; stroke-dashoffset: 100; animation: route-run 1.4s .4s cubic-bezier(.4,0,.2,1) forwards; }
+.pulse-dot { animation: pulse-dot 1.4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .lane-in, .route-draw, .pulse-dot { animation: none; }
+  .route-draw, .route-run { stroke-dashoffset: 0; animation: none; }
 }
 
 /* Blog body: match Tina CMS editor font size and style */
@@ -225,3 +321,47 @@
   background: none;
   font-size: inherit;
 }
+
+/* ---------- Premium visual layer ---------- */
+.tint-peach { background: oklch(0.945 0.05 55); }
+.tint-lavender { background: oklch(0.93 0.05 290); }
+.tint-mint { background: oklch(0.945 0.05 165); }
+.tint-sky { background: oklch(0.94 0.04 235); }
+.tint-butter { background: oklch(0.955 0.065 95); }
+
+.text-gradient {
+  background: linear-gradient(100deg, oklch(0.48 0.22 275), oklch(0.62 0.2 330) 60%, oklch(0.68 0.17 45));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes float-y { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.marquee-track { width: max-content; animation: marquee 42s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.float-a { animation: float-y 7s ease-in-out infinite; }
+.float-b { animation: float-y 8.5s ease-in-out -2.5s infinite; }
+.float-c { animation: float-y 9.5s ease-in-out -5s infinite; }
+
+/* gradient hairline border for the featured tester */
+.ring-gradient { position: relative; }
+.ring-gradient::before {
+  content: ""; position: absolute; inset: -1.5px; border-radius: inherit; padding: 1.5px; z-index: -1;
+  background: linear-gradient(135deg, oklch(0.62 0.2 285), oklch(0.75 0.15 50) 55%, oklch(0.7 0.14 190));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track, .float-a, .float-b, .float-c { animation: none; }
+}
+
+/* Code window (light) used on docs */
+.code-window { border: 1px solid var(--border); border-radius: 1rem; background: oklch(0.975 0.012 285); overflow: hidden; }
+.code-window > header { display: flex; align-items: center; gap: .4rem; padding: .6rem .9rem; border-bottom: 1px solid var(--border); background: oklch(0.96 0.015 285); }
+.code-window > header i { width: .6rem; height: .6rem; border-radius: 999px; background: oklch(0.85 0.03 280); display: block; }
+
+/* Journey stepper progress */
+.journey-fill { transition: width .45s cubic-bezier(.4,0,.2,1); }
+@media (prefers-reduced-motion: reduce) { .journey-fill { transition: none; } }

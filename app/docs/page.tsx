@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import PageHero from "@/components/page-hero"
 import { Button } from "@/components/ui/button"
 import { BookOpen, Settings, Link2, Smartphone, Code, BarChart3 } from "lucide-react"
 import { canonical } from "@/lib/site-url"
@@ -14,27 +15,36 @@ export const metadata: Metadata = {
 
 function CodeBlock({ children }: { children: React.ReactNode }) {
   return (
-    <pre className="rounded-lg border border-border bg-muted/50 p-4 text-sm font-mono overflow-x-auto my-4">
-      <code>{children}</code>
-    </pre>
+    <div className="code-window my-4">
+      <header><i /><i /><i /></header>
+      <pre className="overflow-x-auto p-4 font-mono text-sm leading-relaxed">
+        <code>{children}</code>
+      </pre>
+    </div>
   )
 }
 
 export default function DocsPage() {
   return (
-    <main className="bg-white text-foreground">
+    <main className="bg-background text-foreground">
       <Header />
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          Deep Link Integration Documentation
-        </h1>
-        <p className="text-lg text-muted-foreground mb-12">
-          End-to-end guide to integrate smart deep links across Web, Android, and iOS.
-        </p>
-
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-            <BookOpen className="size-6 text-primary" />
+      <PageHero
+        align="left"
+        art="code"
+        title="Deep link integration, step by step"
+        description="End-to-end guide to integrate smart deep links across Web, Android, and iOS."
+      />
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-24 sm:px-6 lg:grid-cols-12 lg:px-8">
+        <nav aria-label="On this page" className="hidden lg:col-span-3 lg:block">
+          <div className="sticky top-24 rounded-2xl border border-border bg-card p-3 shadow-soft">
+            <p className="px-3 pb-2 pt-1 text-sm font-medium">On this page</p>
+            <ul><li><a href="#overview" className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-accent/10 hover:text-accent">Overview</a></li><li><a href="#getting-started" className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-accent/10 hover:text-accent">Getting Started</a></li><li><a href="#how-deep-links-work" className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-accent/10 hover:text-accent">How Deep Links Work</a></li><li><a href="#deep-link-format" className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-accent/10 hover:text-accent">Deep Link Format</a></li><li><a href="#sdk-usage" className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-accent/10 hover:text-accent">SDK Usage</a></li><li><a href="#android-integration" className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-accent/10 hover:text-accent">Android Integration</a></li><li><a href="#ios-integration" className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-accent/10 hover:text-accent">iOS Integration</a></li><li><a href="#analytics-campaigns-amp-link-control" className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-accent/10 hover:text-accent">Analytics, Campaigns &amp;amp; Link Control</a></li></ul>
+          </div>
+        </nav>
+        <article className="space-y-6 lg:col-span-9">
+        <section id="overview" className="scroll-mt-24 rounded-3xl border border-border bg-card p-6 shadow-soft md:p-10">
+          <h2 className="font-display text-3xl font-medium mb-4 flex items-center gap-3">
+            <BookOpen className="size-10 rounded-xl bg-accent/10 p-2.5 text-accent" />
             Overview
           </h2>
           <h3 className="text-lg font-semibold mb-2">What this system provides</h3>
@@ -46,9 +56,9 @@ export default function DocsPage() {
           </p>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-            <Settings className="size-6 text-primary" />
+        <section id="getting-started" className="scroll-mt-24 rounded-3xl border border-border bg-card p-6 shadow-soft md:p-10">
+          <h2 className="font-display text-3xl font-medium mb-6 flex items-center gap-3">
+            <Settings className="size-10 rounded-xl bg-accent/10 p-2.5 text-accent" />
             Getting Started
           </h2>
           <h3 className="text-lg font-semibold mb-4">Initial setup required before using deep links</h3>
@@ -89,9 +99,9 @@ export default function DocsPage() {
           </div>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-            <Link2 className="size-6 text-primary" />
+        <section id="how-deep-links-work" className="scroll-mt-24 rounded-3xl border border-border bg-card p-6 shadow-soft md:p-10">
+          <h2 className="font-display text-3xl font-medium mb-4 flex items-center gap-3">
+            <Link2 className="size-10 rounded-xl bg-accent/10 p-2.5 text-accent" />
             How Deep Links Work
           </h2>
           <ol className="list-decimal list-inside space-y-2 text-muted-foreground mb-4">
@@ -103,8 +113,8 @@ export default function DocsPage() {
           </ol>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">Deep Link Format</h2>
+        <section id="deep-link-format" className="scroll-mt-24 rounded-3xl border border-border bg-card p-6 shadow-soft md:p-10">
+          <h2 className="font-display text-3xl font-medium mb-4">Deep Link Format</h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
             All links use the <code className="rounded bg-muted px-1.5 py-0.5 text-sm font-mono">/u/*</code> path. This allows your app to handle any dynamic route or query parameters:
           </p>
@@ -116,9 +126,9 @@ export default function DocsPage() {
           </p>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-            <Code className="size-6 text-primary" />
+        <section id="sdk-usage" className="scroll-mt-24 rounded-3xl border border-border bg-card p-6 shadow-soft md:p-10">
+          <h2 className="font-display text-3xl font-medium mb-4 flex items-center gap-3">
+            <Code className="size-10 rounded-xl bg-accent/10 p-2.5 text-accent" />
             SDK Usage
           </h2>
           <h3 className="text-lg font-semibold mb-2">Generating links programmatically</h3>
@@ -135,9 +145,9 @@ export default function DocsPage() {
           </p>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-            <Smartphone className="size-6 text-primary" />
+        <section id="android-integration" className="scroll-mt-24 rounded-3xl border border-border bg-card p-6 shadow-soft md:p-10">
+          <h2 className="font-display text-3xl font-medium mb-4 flex items-center gap-3">
+            <Smartphone className="size-10 rounded-xl bg-accent/10 p-2.5 text-accent" />
             Android Integration
           </h2>
           <h3 className="text-lg font-semibold mb-2">Required Android App Links configuration</h3>
@@ -160,9 +170,9 @@ export default function DocsPage() {
           </p>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-            <Smartphone className="size-6 text-primary" />
+        <section id="ios-integration" className="scroll-mt-24 rounded-3xl border border-border bg-card p-6 shadow-soft md:p-10">
+          <h2 className="font-display text-3xl font-medium mb-4 flex items-center gap-3">
+            <Smartphone className="size-10 rounded-xl bg-accent/10 p-2.5 text-accent" />
             iOS Integration
           </h2>
           <h3 className="text-lg font-semibold mb-2">Universal Links (App)</h3>
@@ -181,9 +191,9 @@ export default function DocsPage() {
           </p>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-            <BarChart3 className="size-6 text-primary" />
+        <section id="analytics-campaigns-amp-link-control" className="scroll-mt-24 rounded-3xl border border-border bg-card p-6 shadow-soft md:p-10">
+          <h2 className="font-display text-3xl font-medium mb-4 flex items-center gap-3">
+            <BarChart3 className="size-10 rounded-xl bg-accent/10 p-2.5 text-accent" />
             Analytics, Campaigns &amp; Link Control
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
@@ -203,8 +213,8 @@ export default function DocsPage() {
           </p>
         </section>
 
-        <section className="rounded-xl border border-border bg-muted/30 p-6 md:p-8 text-center">
-          <h2 className="text-xl font-bold mb-2">Ready to create your first deep link?</h2>
+        <section className="panel-aurora rounded-[2rem] p-8 text-center md:p-12">
+          <h2 className="font-display text-3xl font-medium mb-2">Ready to create your first deep link?</h2>
           <p className="text-muted-foreground mb-6">
             Start by creating your app and configuring the domain.
           </p>
@@ -215,6 +225,7 @@ export default function DocsPage() {
           </Button>
         </section>
       </article>
+      </div>
       <Footer />
     </main>
   )

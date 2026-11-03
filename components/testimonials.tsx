@@ -1,5 +1,7 @@
 "use client"
 
+import { Star } from "lucide-react"
+import SectionHeading from "@/components/section-heading"
 import {
   Carousel,
   CarouselContent,
@@ -8,7 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 
-const testimonials = [
+export const testimonials = [
   {
     quote:
       "DeepURL solved our biggest headache: broken user journeys. Their reliable deep linking technology bridged the gap between our mobile web and app seamlessly. We saw an immediate uplift in retention because users finally landed exactly where they wanted to be—without any friction.",
@@ -53,21 +55,14 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 md:py-32">
+    <section id="testimonials" className="scroll-mt-20 py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Trusted by{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              industry leaders
-            </span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            See how teams around the world are using DeepURL to drive growth
-          </p>
-        </div>
+        <SectionHeading
+          title="Trusted by industry leaders"
+          description="See how teams around the world use DeepURL to drive growth."
+        />
 
-        <div className="relative px-8 md:px-0">
+        <div className="relative mt-14 px-8 md:px-0">
           <Carousel
             opts={{
               align: "start",
@@ -78,16 +73,26 @@ export default function Testimonials() {
             <CarouselContent className="-ml-2 md:-ml-4">
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <div className="bg-card border border-border rounded-lg p-6 hover:border-accent/50 transition flex flex-col h-full">
-                    <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
-                      "{testimonial.quote}"
+                  <div className="flex h-full flex-col card-lift rounded-3xl border border-border bg-card p-7">
+                    <div className="mb-4 flex gap-0.5 text-amber-500" aria-hidden="true">
+                      {[0, 1, 2, 3, 4].map((n) => (
+                        <Star key={n} className="size-4 fill-current" />
+                      ))}
+                    </div>
+                    <p className="mb-6 flex-grow leading-relaxed text-foreground/80">
+                      &ldquo;{testimonial.quote}&rdquo;
                     </p>
-                    <div className="border-t border-border pt-4">
+                    <div className="flex items-center gap-3 border-t border-border pt-4">
+                      <span className={`flex size-11 shrink-0 items-center justify-center rounded-full font-display text-lg ${["tint-peach", "tint-lavender", "tint-mint", "tint-sky"][index % 4]}`} aria-hidden="true">
+                        {testimonial.name.charAt(0)}
+                      </span>
+                      <div>
                       <p className="font-semibold text-foreground">{testimonial.name}</p>
                       <p className="text-sm text-muted-foreground">
                         {testimonial.title}, {testimonial.company}
                       </p>
                       <p className="text-xs text-muted-foreground mt-1">{testimonial.location}</p>
+                      </div>
                     </div>
                   </div>
                 </CarouselItem>

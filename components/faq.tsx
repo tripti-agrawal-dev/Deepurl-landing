@@ -1,9 +1,11 @@
 "use client"
 
-import { ChevronDown } from "lucide-react"
-import { useState } from "react"
+import { Plus } from "lucide-react"
+import { useId, useState } from "react"
+import SectionHeading from "@/components/section-heading"
+import { cn } from "@/lib/utils"
 
-const faqs = [
+export const faqs = [
   {
     question: "What exactly is DeepURL?",
     answer:
@@ -26,41 +28,49 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
+export default function FAQ({ heading = true }: { heading?: boolean }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const baseId = useId()
 
   return (
-    <section id="faq" className="py-20 md:py-32">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Everything You Need to Know
-          </h2>
-        </div>
+    <section id="faq" className="scroll-mt-20 py-20 md:py-28">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        {heading && <SectionHeading title="Everything you need to know" />}
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <button
-              key={index}
-              onClick={() => setOpenIndex(openIndex === index ? null : index)}
-              className="w-full text-left"
-            >
-              <div className="bg-card border border-border rounded-lg p-6 hover:border-accent/50 transition">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-semibold text-lg">{faq.question}</h3>
-                  <ChevronDown
-                    size={20}
-                    className={`flex-shrink-0 text-accent transition-transform ${
-                      openIndex === index ? "rotate-180" : ""
-                    }`}
-                  />
-                </div>
-                {openIndex === index && (
-                  <p className="mt-4 text-muted-foreground leading-relaxed whitespace-pre-line">{faq.answer}</p>
+        <div className={cn("divide-y divide-border border-y border-border", heading && "mt-12")}>
+          {faqs.map((faq, index) => {
+            const open = openIndex === index
+            return (
+              <div key={faq.question}>
+                <h3>
+                  <button
+                    type="button"
+                    id={`${baseId}-q${index}`}
+                    aria-expanded={open}
+                    aria-controls={`${baseId}-a${index}`}
+                    onClick={() => setOpenIndex(open ? null : index)}
+                    className="flex w-full items-center justify-between gap-6 py-6 text-left text-lg font-medium transition hover:text-accent"
+                  >
+                    {faq.question}
+                    <Plus
+                      className={cn("size-5 shrink-0 text-muted-foreground transition-transform duration-200", open && "rotate-45")}
+                      aria-hidden="true"
+                    />
+                  </button>
+                </h3>
+                {open && (
+                  <div
+                    id={`${baseId}-a${index}`}
+                    role="region"
+                    aria-labelledby={`${baseId}-q${index}`}
+                    className="whitespace-pre-line pb-6 pr-10 leading-relaxed text-muted-foreground"
+                  >
+                    {faq.answer}
+                  </div>
                 )}
               </div>
-            </button>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

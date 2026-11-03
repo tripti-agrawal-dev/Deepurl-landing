@@ -1,68 +1,55 @@
-import { Check, X } from "lucide-react"
+import { Check } from "lucide-react"
+import SectionHeading from "@/components/section-heading"
 
 const comparisonData = [
-  {
-    feature: "Routing Speed",
-    deepurl: "<100ms (Instant)",
-    competitors: "200ms+ (Slower)",
-  },
-  {
-    feature: "Pricing",
-    deepurl: "Transparent & Fair",
-    competitors: "Contact Sales (Hidden)",
-  },
-  {
-    feature: "Setup Time",
-    deepurl: "<1 Hour",
-    competitors: "Weeks of Integration",
-  },
-  {
-    feature: "Privacy Model",
-    deepurl: "Next-Gen (PAM)",
-    competitors: "Retrofitted",
-  },
+  { feature: "Routing speed", deepurl: "<100ms (instant)", competitors: "200ms+ (slower)" },
+  { feature: "Pricing", deepurl: "Transparent and fair", competitors: "Contact sales (hidden)" },
+  { feature: "Setup time", deepurl: "<1 hour", competitors: "Weeks of integration" },
+  { feature: "Privacy model", deepurl: "Next-gen (PAM)", competitors: "Retrofitted" },
 ]
 
 export default function Comparison() {
   return (
-    <section className="py-20 md:py-32 bg-muted/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Why Modern Teams Switch to{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              DeepURL
-            </span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Legacy platforms are heavy, expensive, and complex. We built DeepURL for speed and simplicity.
-          </p>
-        </div>
+    <section className="py-20 md:py-28">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          title="Why modern teams switch to DeepURL"
+          description="Legacy platforms are heavy, expensive and complex. We built DeepURL for speed and simplicity."
+        />
 
-        <div className="bg-card border border-border rounded-2xl overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border bg-muted/30">
-                  <th className="text-left p-6 font-semibold">Feature</th>
-                  <th className="text-center p-6 font-semibold">DeepURL (Us)</th>
-                  <th className="text-center p-6 font-semibold text-muted-foreground">Legacy Platforms (Branch, etc.)</th>
+        <div className="mt-12 overflow-x-auto rounded-3xl border border-border bg-card">
+          <table className="w-full min-w-[34rem] text-left">
+            <caption className="sr-only">DeepURL compared with legacy platforms</caption>
+            <thead>
+              <tr className="border-b border-border">
+                <th scope="col" className="p-5 text-sm font-medium text-muted-foreground md:p-6">
+                  Feature
+                </th>
+                <th scope="col" className="bg-accent/5 p-5 text-sm font-semibold md:p-6">
+                  DeepURL
+                </th>
+                <th scope="col" className="p-5 text-sm font-medium text-muted-foreground md:p-6">
+                  Legacy platforms (Branch, etc.)
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonData.map((row) => (
+                <tr key={row.feature} className="border-b border-border last:border-b-0">
+                  <th scope="row" className="p-5 font-medium md:p-6">
+                    {row.feature}
+                  </th>
+                  <td className="bg-accent/5 p-5 font-semibold md:p-6">
+                    <span className="inline-flex items-center gap-2">
+                      <Check className="size-4 text-accent" aria-hidden="true" />
+                      {row.deepurl}
+                    </span>
+                  </td>
+                  <td className="p-5 text-muted-foreground md:p-6">{row.competitors}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {comparisonData.map((row, index) => (
-                  <tr
-                    key={index}
-                    className={`border-b border-border ${index % 2 === 0 ? "bg-background" : "bg-muted/10"}`}
-                  >
-                    <td className="p-6 font-medium">{row.feature}</td>
-                    <td className="p-6 text-center font-semibold text-primary">{row.deepurl}</td>
-                    <td className="p-6 text-center text-muted-foreground">{row.competitors}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

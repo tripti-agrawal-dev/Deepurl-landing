@@ -1,67 +1,32 @@
-import { TrendingUp, Users, DollarSign, Shield } from "lucide-react"
+import SectionHeading from "@/components/section-heading"
 
 const impacts = [
-  {
-    icon: TrendingUp,
-    value: "3x",
-    label: "Increase in App Engagement",
-    description: "Top brands use DeepURL to optimize their campaigns",
-  },
-  {
-    icon: DollarSign,
-    value: "180%",
-    label: "Growth in Mobile Revenue",
-    description: "Real results from real customers using DeepURL",
-  },
-  {
-    icon: Users,
-    value: "85%",
-    label: "Uplift in App Installs",
-    description: "Improve customer experience with seamless linking",
-  },
-  {
-    icon: Shield,
-    value: "99.9%",
-    label: "Link Reliability",
-    description: "Ensure flawless experience across all devices",
-  },
+  { value: "3x", label: "Increase in app engagement", description: "Top brands use DeepURL to optimize their campaigns.", tint: "tint-peach", path: "M0 34 C 20 32, 30 36, 48 26 S 80 24, 100 6" },
+  { value: "180%", label: "Growth in mobile revenue", description: "Real results from teams using DeepURL.", tint: "tint-lavender", path: "M0 36 C 22 30, 34 32, 52 22 S 84 14, 100 4" },
+  { value: "85%", label: "Uplift in app installs", description: "Seamless linking improves the customer experience.", tint: "tint-mint", path: "M0 30 C 18 34, 36 24, 54 20 S 86 12, 100 8" },
+  { value: "99.9%", label: "Link reliability", description: "A flawless experience across all devices.", tint: "tint-sky", path: "M0 10 C 30 9, 60 11, 100 8" },
 ]
 
 export default function Impact() {
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-b from-background to-muted/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Results That{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Matter
-            </span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Top brands use DeepURL to optimize their campaigns and improve customer experience.
-          </p>
-        </div>
+    <section className="py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          title="Results that matter"
+          description="Top brands use DeepURL to optimize their campaigns and improve the customer experience."
+        />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {impacts.map((impact, index) => {
-            const Icon = impact.icon
-            return (
-              <div
-                key={index}
-                className="bg-card border border-border rounded-2xl p-8 text-center hover:border-accent/50 transition"
-              >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-4">
-                  <Icon size={32} className="text-primary" />
-                </div>
-                <div className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  {impact.value}
-                </div>
-                <div className="text-lg font-semibold mb-2">{impact.label}</div>
-                <p className="text-sm text-muted-foreground">{impact.description}</p>
-              </div>
-            )
-          })}
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {impacts.map((impact) => (
+            <div key={impact.label} className={`${impact.tint} card-lift flex flex-col rounded-3xl border border-white/70 p-7`}>
+              <p className="font-display text-6xl font-medium tracking-tight">{impact.value}</p>
+              <svg viewBox="0 0 100 40" className="mt-4 h-10 w-full" aria-hidden="true" preserveAspectRatio="none">
+                <path d={impact.path} fill="none" stroke="oklch(0.5 0.21 275)" strokeWidth="2.5" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+              </svg>
+              <p className="mt-4 text-base font-medium">{impact.label}</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-foreground/70">{impact.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

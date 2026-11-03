@@ -1,13 +1,19 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist, Fraunces } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { SITE_URL, canonical } from "@/lib/site-url"
 import RedirectInvalidRoute from "@/components/redirect-invalid-route"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" })
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  variable: "--font-fraunces",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -50,7 +56,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
           }}
         />
       </head>
-      <body className={`${_geist.className} antialiased`}>
+      <body className={`${geist.variable} ${fraunces.variable} ${geist.className} antialiased`}>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-NZ2CKP9F"

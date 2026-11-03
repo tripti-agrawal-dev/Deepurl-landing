@@ -8,9 +8,14 @@ export const VALID_ROUTES = new Set([
   "/blogs",
   "/contact",
   "/docs",
+  "/features",
+  "/integrations",
+  "/link-tester",
+  "/pricing",
   "/privacy",
   "/support",
   "/terms",
+  "/use-cases",
 ])
 
 /** Paths that are valid when they match a pattern (e.g. /blog/slug) */

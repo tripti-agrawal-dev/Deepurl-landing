@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import PageHero from "@/components/page-hero"
 import { canonical } from "@/lib/site-url"
 import { BookOpen, Link2, BarChart3, HelpCircle, Code, Mail } from "lucide-react"
 
@@ -87,8 +88,8 @@ function SupportCard({
   description: string
 }) {
   return (
-    <div className="bg-card border border-border rounded-lg p-5 hover:border-accent/50 transition">
-      <h3 className="font-semibold text-lg mb-2">{title}</h3>
+    <div className="card-lift h-full rounded-2xl border border-border bg-card p-6">
+      <h3 className="font-display text-xl font-medium mb-2">{title}</h3>
       <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
     </div>
   )
@@ -96,83 +97,84 @@ function SupportCard({
 
 export default function SupportPage() {
   return (
-    <main className="bg-white text-foreground">
+    <main className="bg-background text-foreground">
       <Header />
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">DeepURL Support</h1>
-        <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-          Welcome to DeepURL Support. We&apos;re here to help you build flawless user journeys. Whether you&apos;re just setting up your first smart link or diving deep into attribution data, you&apos;ll find the resources you need below. If you can&apos;t find what you&apos;re looking for, our team is just an email away.
-        </p>
-
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-            <BookOpen className="w-6 h-6 text-accent" />
+      <PageHero
+        align="left"
+        art="help"
+        title="How can we help?"
+        description="Whether you're setting up your first smart link or digging into attribution data, you'll find a guide here."
+      />
+      <article className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
+        <section className="mb-14">
+          <h2 className="font-display text-3xl font-medium mb-2 flex items-center gap-3">
+            <BookOpen className="size-10 rounded-xl bg-accent/10 p-2.5 text-accent" />
             Quick Start Guides
           </h2>
           <p className="text-muted-foreground mb-6">Get up and running in under an hour.</p>
-          <div className="space-y-4">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {quickStartGuides.map((item) => (
               <SupportCard key={item.title} title={item.title} description={item.description} />
             ))}
           </div>
         </section>
 
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-            <Link2 className="w-6 h-6 text-accent" />
+        <section className="mb-14">
+          <h2 className="font-display text-3xl font-medium mb-2 flex items-center gap-3">
+            <Link2 className="size-10 rounded-xl bg-accent/10 p-2.5 text-accent" />
             Platform &amp; Features
           </h2>
           <p className="text-muted-foreground mb-6">Master the tools to power your growth.</p>
-          <div className="space-y-4">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {platformFeatures.map((item) => (
               <SupportCard key={item.title} title={item.title} description={item.description} />
             ))}
           </div>
         </section>
 
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-            <BarChart3 className="w-6 h-6 text-accent" />
+        <section className="mb-14">
+          <h2 className="font-display text-3xl font-medium mb-2 flex items-center gap-3">
+            <BarChart3 className="size-10 rounded-xl bg-accent/10 p-2.5 text-accent" />
             Attribution &amp; Analytics
           </h2>
           <p className="text-muted-foreground mb-6">Stop guessing. Start scaling what works.</p>
-          <div className="space-y-4">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {attributionAnalytics.map((item) => (
               <SupportCard key={item.title} title={item.title} description={item.description} />
             ))}
           </div>
         </section>
 
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-            <HelpCircle className="w-6 h-6 text-accent" />
+        <section className="mb-14">
+          <h2 className="font-display text-3xl font-medium mb-2 flex items-center gap-3">
+            <HelpCircle className="size-10 rounded-xl bg-accent/10 p-2.5 text-accent" />
             Troubleshooting &amp; FAQs
           </h2>
           <p className="text-muted-foreground mb-6">Quick answers to common questions.</p>
           <ul className="space-y-3">
             {faqs.map((q) => (
-              <li key={q} className="bg-card border border-border rounded-lg px-5 py-3 text-foreground">
+              <li key={q} className="card-lift rounded-2xl border border-border bg-card px-5 py-4 text-foreground">
                 {q}
               </li>
             ))}
           </ul>
         </section>
 
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-            <Code className="w-6 h-6 text-accent" />
+        <section className="mb-14">
+          <h2 className="font-display text-3xl font-medium mb-2 flex items-center gap-3">
+            <Code className="size-10 rounded-xl bg-accent/10 p-2.5 text-accent" />
             Developer Resources
           </h2>
           <p className="text-muted-foreground mb-6">Built for engineers who value clean, efficient code.</p>
-          <div className="space-y-4">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {developerResources.map((item) => (
               <SupportCard key={item.title} title={item.title} description={item.description} />
             ))}
           </div>
         </section>
 
-        <section className="border-t border-border pt-12">
-          <h2 className="text-2xl font-bold mb-4">Still have questions? We&apos;re here to help.</h2>
+        <section className="panel-aurora rounded-[2rem] p-8 md:p-12">
+          <h2 className="font-display text-3xl font-medium mb-4">Still have questions? We&apos;re here to help.</h2>
           <p className="text-muted-foreground mb-6 leading-relaxed">
             Our support team is staffed by product experts who understand the mobile ecosystem inside and out. We&apos;re committed to providing you with a fast, clear answer.
           </p>

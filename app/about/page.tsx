@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { ArrowRight, BarChart3, Route, Shield, Zap } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import { Button } from "@/components/ui/button"
-import { Zap, Route, BarChart3, Shield } from "lucide-react"
+import PageHero from "@/components/page-hero"
+import FooterCTA from "@/components/footer-cta"
 import { canonical } from "@/lib/site-url"
 
 export const metadata: Metadata = {
@@ -13,151 +14,158 @@ export const metadata: Metadata = {
   alternates: { canonical: canonical("/about") },
 }
 
+const whatWeDo = [
+  {
+    icon: Zap,
+    title: "We handle the logic",
+    body: "When someone clicks your link, we ask in an instant: does this person have the app, and are they on iOS or Android?",
+  },
+  {
+    icon: Route,
+    title: "We route the traffic",
+    body: "If they have the app, it opens on the right content in under 100ms. If not, they go to the store, and after install the app opens exactly where they meant to go. That's deferred deep linking.",
+  },
+  {
+    icon: BarChart3,
+    title: "We give you the truth",
+    body: "You see which ad, tweet or QR code drove each install. No more blind spots.",
+  },
+]
+
+const legacy = [
+  { title: "They were too slow.", body: "In mobile, every millisecond counts. Waiting 200ms or more for a redirect is too long." },
+  { title: "They were too complex.", body: "Integration took weeks of developer time." },
+  { title: "They were hiding data.", body: "Privacy changes like iOS 14+ scared them off." },
+]
+
+const audience = [
+  { who: "E-commerce teams", what: "Raise average order value by landing people straight on the checkout page." },
+  { who: "SaaS founders", what: "Lower CAC with onboarding links that go from email to the right place in the app." },
+  { who: "Creators", what: "Share branded links that track installs across YouTube and TikTok." },
+]
+
 export default function AboutPage() {
   return (
-    <main className="bg-white text-foreground">
+    <main className="bg-background text-foreground">
       <Header />
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          About DeepURL
-        </h1>
-        <p className="text-lg text-muted-foreground mb-12">
-          We built DeepURL to fix broken user journeys. See how we combine &lt;100ms routing speed with privacy-safe attribution to turn clicks into loyal customers.
-        </p>
+      <PageHero
+        align="left"
+        art="story"
+        title="We got tired of “Unknown source” in our analytics"
+        description="DeepURL fixes the moment where a click turns into an install and the trail goes cold."
+      />
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">
-            We Were Tired of &quot;Unknown Sources&quot; &amp; Broken Journeys
-          </h2>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            Let&apos;s be honest for a second. There is nothing worse for a marketer than seeing &quot;Unknown Source&quot; in your analytics.
-          </p>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            You spend real money on ads, influencers, and email campaigns. You work hard to get that click. But when the user moves from the mobile web to the app store, the data often gets lost. The link breaks. The user installs your app, opens it, and lands on a generic homepage instead of the product they wanted.
-          </p>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            That&apos;s a broken journey. And it&apos;s killing your ROI.
-          </p>
-          <p className="text-muted-foreground leading-relaxed">
-            We built DeepURL because we believe mobile growth shouldn&apos;t be a guessing game. We believe that if a user clicks a link for &quot;Red Sneakers&quot; on Instagram, they should land on that exact &quot;Red Sneaker&quot; page inside your app—even if they have to install the app first.
-          </p>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-6">What We Actually Do</h2>
-          <p className="text-muted-foreground leading-relaxed mb-6">
-            Technically, we are a Mobile Attribution and Deep Linking Platform. But in simple terms? We connect the dots.
-          </p>
-          <p className="text-muted-foreground leading-relaxed mb-6 font-medium">
-            We are the bridge between your marketing and your user.
-          </p>
-          <ul className="space-y-6">
-            <li className="flex gap-4">
-              <div className="shrink-0 rounded-lg bg-primary/10 p-2">
-                <Zap className="size-5 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold mb-1">We Handle the Logic</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  When someone clicks your link, our system instantly asks: &quot;Does this user have the app? Are they on iOS or Android?&quot;
-                </p>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <div className="shrink-0 rounded-lg bg-primary/10 p-2">
-                <Route className="size-5 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold mb-1">We Route the Traffic</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-2">
-                  If they have the app: We open it directly to the right content (&lt;100ms).
-                </p>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-2">
-                  If they don&apos;t: We send them to the App Store.
-                </p>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  <strong>The Magic Part (Deferred Deep Linking):</strong> Once they install and open the app, we remember where they wanted to go and take them there immediately. No searching required.
-                </p>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <div className="shrink-0 rounded-lg bg-primary/10 p-2">
-                <BarChart3 className="size-5 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-semibold mb-1">We Give You the Truth</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  We tell you exactly which ad, tweet, or QR code drove that install. No more blind spots.
-                </p>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">
-            Why We Built a New Platform (The &quot;Legacy&quot; Problem)
-          </h2>
-          <p className="text-muted-foreground leading-relaxed mb-6">
-            You might ask, &quot;Aren&apos;t there other tools that do this?&quot; Yes, there are. But they were built for an older internet.
-          </p>
-          <p className="text-muted-foreground leading-relaxed mb-6">
-            When we looked at the &quot;Legacy Platforms&quot; (you know the big names), we saw three problems:
-          </p>
-          <ul className="list-disc list-inside space-y-2 text-muted-foreground mb-6 ml-2">
-            <li><strong>They were too slow.</strong> In mobile, every millisecond counts. Waiting 200ms+ for a redirect is too long.</li>
-            <li><strong>They were too complex.</strong> Integration took weeks of developer time.</li>
-            <li><strong>They were hiding data.</strong> Privacy changes like iOS 14+ scared them.</li>
-          </ul>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            We decided to build something modern. We engineered DeepURL for speed (&lt;100ms routing). We made it simple (setup in &lt;1 hour). And we solved the privacy puzzle with Next-Gen Predictive Modeling (PAM), so you get accurate data without violating user trust.
-          </p>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">Who is DeepURL For?</h2>
-          <p className="text-muted-foreground leading-relaxed mb-6">
-            We built this for the High-Growth Teams who are done with &quot;good enough.&quot;
-          </p>
-          <ul className="space-y-4 text-muted-foreground">
-            <li className="flex gap-2">
-              <span className="text-primary font-medium shrink-0">For the E-Commerce Giants:</span>
-              Who want to increase Average Order Value by landing users directly on the checkout page.
-            </li>
-            <li className="flex gap-2">
-              <span className="text-primary font-medium shrink-0">For the SaaS Founders:</span>
-              Who want to lower CAC by creating seamless onboarding links from email to app.
-            </li>
-            <li className="flex gap-2">
-              <span className="text-primary font-medium shrink-0">For the Creators:</span>
-              Who need branded links that track installs across YouTube and TikTok.
-            </li>
-          </ul>
-        </section>
-
-        <section className="mb-12 rounded-xl border border-border bg-muted/30 p-6 md:p-8">
-          <div className="flex gap-3 mb-4">
-            <Shield className="size-6 shrink-0 text-primary" />
-            <h2 className="text-2xl font-bold">Our Promise: Transparency &amp; Results</h2>
+      {/* Story */}
+      <section className="py-16 md:py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-8">
+          <h2 className="text-3xl leading-tight md:text-4xl lg:col-span-4">The broken journey</h2>
+          <div className="space-y-5 text-lg leading-relaxed text-muted-foreground lg:col-span-7 lg:col-start-6">
+            <p>
+              There is nothing worse for a marketer than seeing “Unknown source”. You spend real money on ads,
+              influencers and email, and work hard to earn the click. Then the user moves from mobile web to the app
+              store and the data goes missing.
+            </p>
+            <p>
+              They install, open the app, and land on a generic home screen instead of the product they wanted. That is
+              a broken journey, and it quietly eats your ROI.
+            </p>
+            <p className="text-foreground">
+              If someone taps a link for red sneakers on Instagram, they should land on those sneakers inside your app,
+              even if they have to install it first.
+            </p>
           </div>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            We don&apos;t believe in &quot;Contact Sales&quot; for basic pricing. We don&apos;t believe in hidden fees. And we definitely don&apos;t believe in hoarding your data.
-          </p>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            We are here to help you recover lost attribution, boost retention, and finally see the true ROI of your hard work.
-          </p>
-          <p className="text-muted-foreground leading-relaxed">
-            The mobile ecosystem is complex, but your growth strategy doesn&apos;t have to be. Let us handle the links, so you can focus on the product.
-          </p>
-        </section>
+        </div>
+      </section>
 
-        <section className="text-center">
-          <p className="text-xl font-semibold mb-6">Stop guessing. Start growing.</p>
-          <Button asChild size="lg">
-            <Link href="/contact">Request a Demo</Link>
-          </Button>
-        </section>
-      </article>
+      {/* What we do */}
+      <section className="bg-secondary/70 py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="max-w-2xl text-3xl leading-tight md:text-4xl">
+            In plain terms, we connect your marketing to your app
+          </h2>
+          <ul className="mt-12 grid gap-5 md:grid-cols-3">
+            {whatWeDo.map((item) => {
+              const Icon = item.icon
+              return (
+                <li key={item.title} className="card-lift rounded-3xl border border-border bg-card p-7">
+                  <div className="flex size-11 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                    <Icon className="size-5" aria-hidden="true" />
+                  </div>
+                  <h3 className="mt-5 font-display text-xl font-medium">{item.title}</h3>
+                  <p className="mt-2 leading-relaxed text-muted-foreground">{item.body}</p>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      </section>
+
+      {/* Why new */}
+      <section className="py-16 md:py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-8">
+          <div className="lg:col-span-4">
+            <h2 className="text-3xl leading-tight md:text-4xl">Why we built something new</h2>
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              Other tools do this. They were built for an older internet, and we saw three problems.
+            </p>
+          </div>
+          <div className="lg:col-span-7 lg:col-start-6">
+            <ul className="divide-y divide-border border-y border-border">
+              {legacy.map((item) => (
+                <li key={item.title} className="py-5">
+                  <p className="font-display text-xl font-medium">{item.title}</p>
+                  <p className="mt-1 text-muted-foreground">{item.body}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 leading-relaxed text-muted-foreground">
+              So we built for speed (under 100ms routing), kept setup short (under an hour), and used privacy-safe
+              predictive modeling (PAM) so the data holds up without breaking user trust.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Who it's for */}
+      <section className="pb-16 md:pb-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="max-w-2xl text-3xl leading-tight md:text-4xl">Made for teams done with “good enough”</h2>
+          <dl className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-3">
+            {audience.map((item) => (
+              <div key={item.who} className="border-t-2 border-foreground pt-4">
+                <dt className="font-display text-xl font-medium">{item.who}</dt>
+                <dd className="mt-2 leading-relaxed text-muted-foreground">{item.what}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      {/* Promise */}
+      <section className="px-4 pb-16 sm:px-6 md:pb-24 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 rounded-[2rem] border border-border bg-mist p-8 md:flex-row md:items-start md:gap-10 md:p-12">
+          <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
+            <Shield className="size-6" aria-hidden="true" />
+          </div>
+          <div className="max-w-3xl">
+            <h2 className="text-3xl leading-tight md:text-4xl">Our promise: clear pricing and your data stays yours</h2>
+            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+              No “contact sales” for basic pricing, no hidden fees, and no hoarding your data. We are here to help you
+              recover lost attribution, improve retention and see the real return on your work. Let us handle the links
+              so you can focus on the product.
+            </p>
+            <Link
+              href="/pricing"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-accent underline-offset-4 hover:underline"
+            >
+              See pricing
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <FooterCTA />
       <Footer />
     </main>
   )

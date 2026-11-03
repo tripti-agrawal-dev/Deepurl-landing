@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import PageHero from "@/components/page-hero"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import client from "@/tina/__generated__/client"
@@ -59,9 +60,9 @@ function BlogCard({
   return (
     <Link
       href={`/blog/${slug}`}
-      className="group block rounded-2xl bg-card border border-border overflow-hidden hover:border-accent/50 transition"
+      className="group card-lift block overflow-hidden rounded-3xl border border-border bg-card"
     >
-      <div className="aspect-[4/3] bg-gradient-to-br from-muted via-muted/80 to-background relative overflow-hidden">
+      <div className="aspect-[4/3] bg-gradient-to-br from-[oklch(0.93_0.06_285)] via-[oklch(0.95_0.05_55)] to-[oklch(0.94_0.05_165)] relative overflow-hidden">
         {featuredImage ? (
           <img
             src={featuredImage}
@@ -69,16 +70,16 @@ function BlogCard({
             className="absolute inset-0 h-full w-full object-cover"
           />
         ) : null}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        
         <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-          <span className="text-xs font-medium text-white/90 uppercase tracking-wider">
+          <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-foreground">
             Read more
           </span>
-          <ArrowRight className="w-4 h-4 text-white opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition" />
+          <ArrowRight className="size-8 rounded-full bg-primary p-2 text-primary-foreground opacity-0 -translate-x-1 transition group-hover:translate-x-0 group-hover:opacity-100" />
         </div>
       </div>
       <div className="p-6">
-        <h2 className="font-semibold text-lg text-foreground group-hover:text-accent transition line-clamp-2 mb-2">
+        <h2 className="font-display text-xl font-medium text-foreground group-hover:text-accent transition line-clamp-2 mb-2">
           {title}
         </h2>
         <p className="text-sm text-muted-foreground line-clamp-2">{excerpt}</p>
@@ -91,26 +92,15 @@ export default async function BlogsPage() {
   const posts = await getPosts()
 
   return (
-    <main className="bg-white text-foreground">
+    <main className="bg-background text-foreground">
       <Header />
 
-      {/* Hero / intro section */}
-      <section className="border-b border-border bg-muted/20 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-card border border-border text-sm font-medium text-foreground mb-6">
-            Blog
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            DeepURL{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Insights
-            </span>
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover tips, tutorials, and the latest news on deep linking, mobile attribution, and growing your app with DeepURL.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        align="left"
+        art="read"
+        title="Insights on deep linking and mobile growth"
+        description="Tips, tutorials and news on deep linking, mobile attribution, and growing your app with DeepURL."
+      />
 
       {/* Blog grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">

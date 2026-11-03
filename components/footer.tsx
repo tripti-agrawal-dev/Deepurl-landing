@@ -1,107 +1,76 @@
 import Link from "next/link"
+import Image from "next/image"
+import { ArrowUpRight } from "lucide-react"
+import { PRODUCT_LINKS, RESOURCE_LINKS } from "@/lib/site-nav"
+
+const columns = [
+  { title: "Product", links: [...PRODUCT_LINKS.map(({ label, href }) => ({ label, href })), { label: "Pricing", href: "/pricing" }] },
+  { title: "Resources", links: RESOURCE_LINKS.map(({ label, href }) => ({ label, href })) },
+  { title: "Company", links: [{ label: "About", href: "/about" }, { label: "Contact", href: "/contact" }, { label: "Use cases", href: "/use-cases" }] },
+  { title: "Legal", links: [{ label: "Privacy", href: "/privacy" }, { label: "Terms", href: "/terms" }, { label: "Support", href: "/support" }] },
+]
+
+const socials = [
+  { label: "Facebook", href: "https://www.facebook.com/share/1DdWxZSX2Z/" },
+  { label: "X", href: "https://x.com/Deepurltracking" },
+  { label: "Instagram", href: "https://www.instagram.com/deepurltracking?igsh=dGY2ZXB5eTI0MjNw" },
+  { label: "YouTube", href: "https://youtube.com/@deepurl-g2p?si=TLvkdKLfzrBdhi5z" },
+  { label: "Pinterest", href: "https://pin.it/5fINpzFyz" },
+]
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-card">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="relative overflow-hidden border-t border-border bg-gradient-to-b from-secondary/70 to-[oklch(0.93_0.04_290)]">
+      <div className="relative mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8">
         <h2 className="sr-only">Site map</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          <div>
-            <h3 className="font-semibold mb-4">Product</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link href="/#features" className="hover:text-foreground transition">
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link href="/#pricing" className="hover:text-foreground transition">
-                  Pricing
-                </Link>
-              </li>
-              {/* <li>
-                <Link href="#" className="hover:text-foreground transition">
-                  API Docs
-                </Link>
-              </li> */}
-            </ul>
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <Link href="/" aria-label="DeepURL home" className="inline-block">
+              <Image src="/DurlBranding.png" alt="DeepURL" width={140} height={40} className="h-9 w-auto mix-blend-multiply" />
+            </Link>
+            <p className="mt-4 max-w-xs text-lg leading-relaxed text-foreground/75">
+              Every click, on the right screen. Every install, traced to its source.
+            </p>
+            <Link href="/link-tester" className="btn-primary mt-6 inline-flex h-11 items-center gap-2 rounded-full px-6 text-sm font-medium text-primary-foreground">
+              Try the link tester
+              <ArrowUpRight className="size-4" aria-hidden="true" />
+            </Link>
           </div>
-          <div>
-            <h3 className="font-semibold mb-4">Resources</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link href="/docs" className="hover:text-foreground transition">
-                  Documentation
-                </Link>
-              </li>
-              <li>
-                <Link href="/blogs" className="hover:text-foreground transition">
-                  Blog
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-4">Company</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link href="/about" className="hover:text-foreground transition">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-foreground transition">
-                  Contact
-                </Link>
-              </li>
 
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link href="/privacy" className="hover:text-foreground transition">
-                  Privacy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="hover:text-foreground transition">
-                  Terms of Security
-                </Link>
-              </li>
-              <li>
-                <Link href="/support" className="hover:text-foreground transition">
-                  Support
-                </Link>
-              </li>
-            </ul>
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-8">
+            {columns.map((column) => (
+              <div key={column.title}>
+                <h3 className="text-sm font-semibold">{column.title}</h3>
+                <ul className="mt-4 space-y-3 text-sm text-foreground/70">
+                  {column.links.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="transition hover:text-accent">{link.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="border-t border-border pt-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <p className="text-sm text-muted-foreground">© 2025 DeepURL. All rights reserved.</p>
-            <div className="flex flex-wrap gap-6 mt-4 md:mt-0">
-              <a href="https://www.facebook.com/share/1DdWxZSX2Z/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
-                Facebook
-              </a>
-              <a href="https://x.com/Deepurltracking" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
-                X
-              </a>
-              <a href="https://www.instagram.com/deepurltracking?igsh=dGY2ZXB5eTI0MjNw" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
-                Instagram
-              </a>
-              <a href="https://youtube.com/@deepurl-g2p?si=TLvkdKLfzrBdhi5z" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
-                YouTube
-              </a>
-              <a href="https://pin.it/5fINpzFyz" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
-                Pinterest
-              </a>
-            </div>
-          </div>
+        <div className="mt-14 flex flex-col gap-5 border-t border-foreground/10 pt-6 text-sm md:flex-row md:items-center md:justify-between">
+          <p className="text-foreground/70">&copy; {new Date().getFullYear()} DeepURL. All rights reserved.</p>
+          <ul className="flex flex-wrap gap-2">
+            {socials.map((s) => (
+              <li key={s.label}>
+                <a href={s.href} target="_blank" rel="noopener noreferrer" className="btn-ghost inline-flex rounded-full border border-foreground/15 bg-card/70 px-3.5 py-1.5 text-foreground/80 hover:text-accent">
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
+
+      {/* oversized wordmark, cropped by the bottom edge */}
+      <p aria-hidden="true" className="text-gradient pointer-events-none mt-6 select-none text-center font-display text-[22vw] font-medium leading-[0.72] tracking-tighter opacity-25 [mask-image:linear-gradient(to_bottom,#000_40%,transparent)] lg:text-[16rem]">
+        DeepURL
+      </p>
     </footer>
   )
 }
