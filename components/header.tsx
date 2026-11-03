@@ -2,6 +2,8 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import logo from "@/public/DurlBranding.png"
+
 import { useEffect, useRef, useState } from "react"
 import { ChevronDown, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -13,6 +15,7 @@ import {
   SOLUTION_LINKS,
   type NavLink,
 } from "@/lib/site-nav"
+
 
 const MENUS: { id: string; label: string; links: NavLink[] }[] = [
   { id: "product", label: "Product", links: PRODUCT_LINKS },
@@ -76,7 +79,7 @@ export default function Header() {
       >
         <Link href="/" className="flex shrink-0 items-center" onClick={closeAll} aria-label="DeepURL home">
           <Image
-            src="/DurlBranding.png"
+            src={logo}
             alt="DeepURL"
             width={140}
             height={40}

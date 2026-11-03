@@ -1,6 +1,6 @@
 "use client"
 
-import { useId, useState } from "react"
+import { useId, useRef,useState } from "react"
 import { AlertTriangle, Check, ChevronRight, Link2, Monitor, Smartphone, XCircle } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -261,6 +261,7 @@ export default function LinkTester({ className }: { className?: string }) {
   const [analysis, setAnalysis] = useState<Analysis | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [run, setRun] = useState(0)
+  const resultsRef = useRef<HTMLDivElement>(null)
 
   function runTest(raw: string) {
     const out = analyzeLink(raw)
@@ -271,7 +272,8 @@ export default function LinkTester({ className }: { className?: string }) {
     }
     setError(null)
     setAnalysis(out.analysis)
-    setRun((n) => n + 1)
+    setRun((n) => n + 1),
+    requestAnimationFrame(() => resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }))
   }
 
   const lanes = analysis ? buildLanes(analysis, installed) : null
@@ -360,7 +362,7 @@ export default function LinkTester({ className }: { className?: string }) {
           </p>
         )}
 
-        <div aria-live="polite" className="border-t border-border">
+        <div ref={resultsRef} aria-live="polite" className="border-t border-border">
           {!lanes || !analysis ? (
             <div className="grid gap-px p-4 sm:grid-cols-3" aria-hidden={error ? true : undefined}>
               {["iPhone", "Android", "Desktop"].map((label) => (

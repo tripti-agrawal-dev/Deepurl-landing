@@ -1,5 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
+import logo from "@/public/DurlBranding.png"
 import { ArrowUpRight } from "lucide-react"
 import { PRODUCT_LINKS, RESOURCE_LINKS } from "@/lib/site-nav"
 
@@ -26,7 +27,7 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Link href="/" aria-label="DeepURL home" className="inline-block">
-              <Image src="/DurlBranding.png" alt="DeepURL" width={140} height={40} className="h-9 w-auto mix-blend-multiply" />
+              <Image src={logo} alt="DeepURL" width={140} height={40} className="h-9 w-auto mix-blend-multiply" />
             </Link>
             <p className="mt-4 max-w-xs text-lg leading-relaxed text-foreground/75">
               Every click, on the right screen. Every install, traced to its source.

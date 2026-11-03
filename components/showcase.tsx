@@ -126,7 +126,7 @@ export default function Showcase() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading title="The product, up close" description="A quick look at what your team will use every day." />
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-12">
+        <div className="mt-14 grid-cols-1 gap-6 lg:grid-cols-12">
           <div role="tablist" aria-label="Product areas" className="grid gap-2 sm:grid-cols-2 lg:col-span-4 lg:grid-cols-1">
             {tabs.map((tab, i) => {
               const Icon = tab.icon

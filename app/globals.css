@@ -132,8 +132,10 @@
 /* ---------- DeepURL design system ---------- */
 @layer base {
   html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  html, body { overflow-x: clip; }
   h1, h2 { font-family: var(--font-fraunces), Georgia, serif; font-weight: 500; letter-spacing: -0.025em; }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Warm paper, a peach glow from the top left and a lavender one from the right.
@@ -143,6 +145,8 @@
     radial-gradient(55% 60% at 8% 0%, oklch(0.93 0.07 55 / 0.95), transparent 70%),
     radial-gradient(45% 55% at 95% 15%, oklch(0.9 0.07 295 / 0.75), transparent 70%),
     radial-gradient(60% 40% at 50% 100%, oklch(0.95 0.035 255 / 0.6), transparent 70%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
 }
 
 /* faint grid, fades out toward the edges (dub.co style) */

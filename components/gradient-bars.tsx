@@ -8,10 +8,7 @@ export default function GradientBars({ className = "" }: { className?: string })
         <div
           key={i}
           className="flex-1 border-r border-white/40"
-          style={{
-            height: `${h}%`,
-            background: `linear-gradient(to top, oklch(${0.78 + (i % 5) * 0.01} 0.11 ${i % 2 ? 195 : 275} / 0.55), oklch(0.97 0.02 ${i % 2 ? 195 : 285} / 0))`,
-          }}
+          style={{ WebkitMaskImage: "linear-gradient(to bottom, #000 70%, transparent)", maskImage: "linear-gradient(to bottom, #000 70%, transparent)" }}
         />
       ))}
     </div>

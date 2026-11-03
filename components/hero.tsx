@@ -18,7 +18,7 @@ export default function Hero() {
     <section className="relative -mt-16 overflow-hidden pt-16">
       <div className="hero-wash absolute inset-0" aria-hidden="true" />
       <div className="bg-grid absolute inset-0" aria-hidden="true" />
-      <GradientBars />
+      <GradientBars className="[mask-image:linear-gradient(to_top,transparent,#000_30%)]" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-28 pt-12 sm:px-6 md:pt-16 lg:grid-cols-12 lg:gap-6 lg:px-8">
         {/* copy + tester */}
