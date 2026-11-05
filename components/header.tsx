@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import logo from "@/public/DurlBranding.png"
+import logo from "@/public/deepUrlLogo.png"
 
 import { useEffect, useRef, useState } from "react"
 import { ChevronDown, Menu, X } from "lucide-react"
@@ -82,8 +82,8 @@ export default function Header() {
             src={logo}
             alt="DeepURL"
             width={140}
-            height={40}
-            className="h-9 w-auto mix-blend-multiply"
+            height={46}
+            className="h-11 w-auto"
             priority
           />
         </Link>
@@ -144,6 +144,9 @@ export default function Header() {
           <Link href="/pricing" className="rounded-lg px-3 py-2 text-sm font-medium transition hover:bg-muted">
             Pricing
           </Link>
+          <Link href="/faq" className="rounded-lg px-3 py-2 text-sm font-medium transition hover:bg-muted">
+            FAQ
+          </Link>
         </div>
 
         <div className="hidden items-center gap-2 md:flex">
@@ -199,9 +202,16 @@ export default function Header() {
           <Link
             href="/pricing"
             onClick={closeAll}
-            className="mb-5 block rounded-xl px-3 py-2.5 text-base font-medium transition hover:bg-muted"
+            className="block rounded-xl px-3 py-2.5 text-base font-medium transition hover:bg-muted"
           >
             Pricing
+          </Link>
+          <Link
+            href="/faq"
+            onClick={closeAll}
+            className="mb-5 block rounded-xl px-3 py-2.5 text-base font-medium transition hover:bg-muted"
+          >
+            FAQ
           </Link>
 
           <div className="flex flex-col gap-2">

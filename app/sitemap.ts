@@ -42,6 +42,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: BASE + "/privacy", lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
     { url: BASE + "/support", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: BASE + "/terms", lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
+    { url: BASE + "/compare", lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    { url: BASE + "/cookies", lastModified: new Date(), changeFrequency: "monthly", priority: 0.4 },
+    { url: BASE + "/faq", lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    { url: BASE + "/security", lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
   ]
 
   return [...staticPages, ...blogUrls]

@@ -4,6 +4,7 @@ export const PRODUCT_LINKS: NavLink[] = [
   { label: "Features", href: "/features", description: "Deep linking, attribution and full-funnel tracking" },
   { label: "Link tester", href: "/link-tester", description: "See where a link sends people on iPhone, Android and desktop" },
   { label: "Integrations", href: "/integrations", description: "Ad platforms, app stores and your own stack" },
+  { label: "Compare", href: "/compare", description: "How DeepURL stacks up against legacy platforms" },
   { label: "How it works", href: "/#how-it-works", description: "From click to conversion in three steps" },
 ]
 

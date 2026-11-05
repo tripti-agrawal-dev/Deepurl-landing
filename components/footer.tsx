@@ -1,14 +1,14 @@
 import Link from "next/link"
 import Image from "next/image"
-import logo from "@/public/DurlBranding.png"
+import logo from "@/public/deepUrlLogo.png"
 import { ArrowUpRight } from "lucide-react"
 import { PRODUCT_LINKS, RESOURCE_LINKS } from "@/lib/site-nav"
 
 const columns = [
   { title: "Product", links: [...PRODUCT_LINKS.map(({ label, href }) => ({ label, href })), { label: "Pricing", href: "/pricing" }] },
-  { title: "Resources", links: RESOURCE_LINKS.map(({ label, href }) => ({ label, href })) },
+  { title: "Resources", links: [...RESOURCE_LINKS.map(({ label, href }) => ({ label, href })), { label: "FAQ", href: "/faq" }] },
   { title: "Company", links: [{ label: "About", href: "/about" }, { label: "Contact", href: "/contact" }, { label: "Use cases", href: "/use-cases" }] },
-  { title: "Legal", links: [{ label: "Privacy", href: "/privacy" }, { label: "Terms", href: "/terms" }, { label: "Support", href: "/support" }] },
+  { title: "Legal", links: [{ label: "Privacy Policy", href: "/privacy" }, { label: "Terms", href: "/terms" }, { label: "Cookie Policy", href: "/cookies" }, { label: "Security", href: "/security" }] },
 ]
 
 const socials = [
@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Link href="/" aria-label="DeepURL home" className="inline-block">
-              <Image src={logo} alt="DeepURL" width={140} height={40} className="h-9 w-auto mix-blend-multiply" />
+              <Image src={logo} alt="DeepURL" width={140} height={46} className="h-11 w-auto" />
             </Link>
             <p className="mt-4 max-w-xs text-lg leading-relaxed text-foreground/75">
               Every click, on the right screen. Every install, traced to its source.
@@ -55,7 +55,14 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-5 border-t border-foreground/10 pt-6 text-sm md:flex-row md:items-center md:justify-between">
-          <p className="text-foreground/70">&copy; {new Date().getFullYear()} DeepURL. All rights reserved.</p>
+          <div className="flex flex-col gap-2 text-foreground/70 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-5">
+            <p>&copy; {new Date().getFullYear()} DeepURL. All rights reserved.</p>
+            <ul className="flex flex-wrap gap-x-4 gap-y-1">
+              <li><Link href="/privacy" className="transition hover:text-accent">Privacy</Link></li>
+              <li><Link href="/terms" className="transition hover:text-accent">Terms</Link></li>
+              <li><Link href="/cookies" className="transition hover:text-accent">Cookies</Link></li>
+            </ul>
+          </div>
           <ul className="flex flex-wrap gap-2">
             {socials.map((s) => (
               <li key={s.label}>
