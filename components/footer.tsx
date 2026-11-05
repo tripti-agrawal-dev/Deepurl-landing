@@ -14,8 +14,8 @@ const columns = [
 const socials = [
   { label: "Facebook", href: "https://www.facebook.com/share/1DdWxZSX2Z/" },
   { label: "X", href: "https://x.com/Deepurltracking" },
-  { label: "Instagram", href: "https://www.instagram.com/deepurltracking?igsh=dGY2ZXB5eTI0MjNw" },
-  { label: "YouTube", href: "https://youtube.com/@deepurl-g2p?si=TLvkdKLfzrBdhi5z" },
+  { label: "Instagram", href: "https://www.instagram.com/deepurltracking" },
+  { label: "YouTube", href: "https://youtube.com/@deepurl-g2p" },
   { label: "Pinterest", href: "https://pin.it/5fINpzFyz" },
 ]
 

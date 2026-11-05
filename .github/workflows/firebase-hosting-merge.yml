@@ -4,32 +4,47 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    env:
+      # Secrets are masked in logs. Never use `vars.*` for tokens (variables are plain text).
+      NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
+      TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+      NEXT_PUBLIC_BRANCH: ${{ github.ref_name }}
+      NEXT_PUBLIC_TINA_BRANCH: ${{ github.ref_name }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Create .env.local file
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Check required secrets
         run: |
-          echo "NEXT_PUBLIC_TINA_CLIENT_ID=${{ vars.NEXT_PUBLIC_TINA_CLIENT_ID }}" >> .env.local
-          echo "TINA_TOKEN=${{ vars.TINA_TOKEN }}" >> .env.local
-          echo "NEXT_PUBLIC_TINA_BRANCH=${{ vars.NEXT_PUBLIC_TINA_BRANCH }}" >> .env.local
+          missing=0
+          [ -z "$NEXT_PUBLIC_TINA_CLIENT_ID" ] && echo "::error::Secret NEXT_PUBLIC_TINA_CLIENT_ID is not set" && missing=1
+          [ -z "$TINA_TOKEN" ] && echo "::error::Secret TINA_TOKEN is not set" && missing=1
+          [ -z "$FIREBASE_SA" ] && echo "::error::Secret FIREBASE_SERVICE_ACCOUNT is not set" && missing=1
+          exit $missing
+        env:
+          FIREBASE_SA: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Tina CMS admin (for /admin on deployed site)
+      # build:tina runs `tinacms build` AND `next build` (see scripts/build-tina.mjs),
+      # so a second `npm run build` is not needed.
+      - name: Build Tina CMS admin + Next.js site
         run: npm run build:tina
-
-      - name: Build project
-        env:
-          NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
-          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-          NEXT_PUBLIC_TINA_BRANCH: ${{ github.ref_name }}
-        run: npm run build
 
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
