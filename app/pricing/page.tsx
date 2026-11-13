@@ -24,7 +24,7 @@ export default function PricingPage() {
         description="Start with essential deep linking today. Move to enterprise attribution when you're ready."
       />
       <Pricing heading={false} />
-      <div className="pt-4">
+      <div>
         <SectionHeading title="Questions about pricing and setup" />
         <FAQ heading={false} />
       </div>

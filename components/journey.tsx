@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, type ReactNode } from "react"
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 import { Check, CreditCard, Download, MousePointerClick, ShoppingBag, Smartphone, Split, Store } from "lucide-react"
 import SectionHeading from "@/components/section-heading"
 import { cn } from "@/lib/utils"
@@ -151,21 +151,83 @@ const steps: Step[] = [
   },
 ]
 
+// Header height the sticky stage sits under, and how much scrolling each step gets.
+const HEADER_OFFSET = 64
+const VH_PER_STEP = 45
+
 export default function Journey() {
   const [active, setActive] = useState(0)
+  // Scroll-driven mode: laptop/desktop only, and only if the visitor hasn't asked for reduced motion.
+  const [scrollMode, setScrollMode] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
   const step = steps[active]
   const pct = (active / (steps.length - 1)) * 100
 
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px) and (prefers-reduced-motion: no-preference)")
+    const update = () => setScrollMode(mq.matches)
+    update()
+    mq.addEventListener("change", update)
+    return () => mq.removeEventListener("change", update)
+  }, [])
+
+  // Distance (px) the section scrolls while the stage is pinned.
+  const travel = useCallback(() => {
+    const el = sectionRef.current
+    if (!el) return 1
+    return Math.max(1, el.offsetHeight - (window.innerHeight - HEADER_OFFSET))
+  }, [])
+
+  useEffect(() => {
+    if (!scrollMode) return
+    let frame = 0
+    const onScroll = () => {
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(() => {
+        const el = sectionRef.current
+        if (!el) return
+        const scrolled = HEADER_OFFSET - el.getBoundingClientRect().top
+        const progress = Math.min(1, Math.max(0, scrolled / travel()))
+        setActive(Math.min(steps.length - 1, Math.floor(progress * steps.length)))
+      })
+    }
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    window.addEventListener("resize", onScroll)
+    return () => {
+      cancelAnimationFrame(frame)
+      window.removeEventListener("scroll", onScroll)
+      window.removeEventListener("resize", onScroll)
+    }
+  }, [scrollMode, travel])
+
+  // Clicking a step jumps to its slot in the scroll (or just switches, when not scroll-driven).
+  const goTo = (i: number) => {
+    const el = sectionRef.current
+    if (!scrollMode || !el) {
+      setActive(i)
+      return
+    }
+    const top = window.scrollY + el.getBoundingClientRect().top - HEADER_OFFSET
+    window.scrollTo({ top: top + ((i + 0.5) / steps.length) * travel(), behavior: "smooth" })
+  }
+
   return (
-    <section id="how-it-works" className="scroll-mt-20 py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section
+      ref={sectionRef}
+      id="how-it-works"
+      className={cn("scroll-mt-20", !scrollMode && "section-y")}
+      style={scrollMode ? { height: `calc(${steps.length * VH_PER_STEP}vh + 100vh - ${HEADER_OFFSET}px)` } : undefined}
+    >
+      <div className={cn(scrollMode && "sticky flex min-h-[calc(100vh-4rem)] items-center")} style={scrollMode ? { top: HEADER_OFFSET } : undefined}>
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="Follow one link from the first tap to the sale"
           description="Pick a step to see what the person sees and what DeepURL does behind the scenes."
         />
 
         {/* stepper */}
-        <div className="relative mx-auto mt-14 max-w-5xl">
+        <div className={cn("relative mx-auto max-w-5xl", scrollMode ? "mt-8" : "mt-14")}>
           <div className="absolute left-[8%] right-[8%] top-6 hidden h-0.5 bg-border md:block" aria-hidden="true">
             <div className="journey-fill h-full bg-accent" style={{ width: `${pct}%` }} />
           </div>
@@ -181,9 +243,7 @@ export default function Journey() {
                   id={`tab-${s.id}`}
                   aria-selected={on}
                   aria-controls="journey-panel"
-                  onClick={() => setActive(i)}
-                  onMouseEnter={() => setActive(i)}
-                  onFocus={() => setActive(i)}
+                  onClick={() => goTo(i)}
                   className="group flex flex-col items-center gap-2 text-center"
                 >
                   <span
@@ -206,7 +266,7 @@ export default function Journey() {
           id="journey-panel"
           role="tabpanel"
           aria-labelledby={`tab-${step.id}`}
-          className="mx-auto mt-12 grid max-w-6xl overflow-hidden rounded-[2rem] border border-border bg-card shadow-soft md:grid-cols-2"
+          className={cn("mx-auto grid max-w-6xl overflow-hidden rounded-[2rem] border border-border bg-card shadow-soft md:grid-cols-2", scrollMode ? "mt-8" : "mt-12")}
         >
           <div className="flex flex-col justify-center p-8 md:p-12">
             <p className="text-sm font-medium text-accent">Step {active + 1} of {steps.length}</p>
@@ -225,6 +285,7 @@ export default function Journey() {
             <div className="w-full max-w-sm">{step.screen}</div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   )

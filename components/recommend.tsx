@@ -55,7 +55,7 @@ export default function Recommend() {
   const o = options[active]
 
   return (
-    <section className="py-20 md:py-28">
+    <section className="section-y">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading title="Not sure where to start?" description="Tell us what you're linking to and we'll suggest a setup." />
 

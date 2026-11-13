@@ -39,7 +39,7 @@ const plans = [
 
 export default function Pricing({ heading = true }: { heading?: boolean }) {
   return (
-    <section id="pricing" className="scroll-mt-20 py-20 md:py-28">
+    <section id="pricing" className={cn("scroll-mt-20", heading ? "section-y" : "pb-14 md:pb-20")}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {heading && (
           <SectionHeading

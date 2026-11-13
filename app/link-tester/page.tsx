@@ -36,7 +36,7 @@ export default function LinkTesterPage() {
         </div>
       </section>
 
-      <section className="pb-20 md:pb-28">
+      <section className="pb-14 md:pb-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-semibold md:text-4xl">What the tester looks at</h2>
           <ul className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2">

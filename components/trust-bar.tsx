@@ -91,7 +91,7 @@ const visuals = [
 
 export default function TrustBar() {
   return (
-    <section id="features" className="scroll-mt-20 py-20 md:py-28">
+    <section id="features" className="scroll-mt-20 section-y">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="Built for the whole journey, not just the click"

@@ -36,7 +36,7 @@ const solutions = [
 export default function ProblemSolution() {
   return (
     <>
-      <section className="py-20 md:py-28">
+      <section className="section-y">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-5 lg:gap-16 lg:px-8">
           <div className="lg:col-span-2">
             <SectionHeading
@@ -58,7 +58,7 @@ export default function ProblemSolution() {
         </div>
       </section>
 
-      <section className="px-4 pb-20 sm:px-6 md:pb-28 lg:px-8">
+      <section className="px-4 pb-14 sm:px-6 md:pb-20 lg:px-8">
         <div className="panel-aurora mx-auto max-w-7xl rounded-[2rem] px-6 py-16 sm:px-10 md:py-20 lg:px-16">
           <SectionHeading
             title="One platform. Flawless journeys."

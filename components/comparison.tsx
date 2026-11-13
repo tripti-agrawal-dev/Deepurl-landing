@@ -10,10 +10,11 @@ const comparisonData = [
 
 export default function Comparison() {
   return (
-    <section className="py-20 md:py-28">
+    <section className="section-y">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="Why modern teams switch to DeepURL"
+          className="max-w-5xl"
           description="Legacy platforms are heavy, expensive and complex. We built DeepURL for speed and simplicity."
         />
 
