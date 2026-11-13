@@ -34,7 +34,7 @@ export const useCases = [
 
 export default function UseCases() {
   return (
-    <section id="use-cases" className="scroll-mt-20 py-20 md:py-28">
+    <section id="use-cases" className="scroll-mt-20 section-y">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading align="left" title="Built for high-growth mobile teams" />

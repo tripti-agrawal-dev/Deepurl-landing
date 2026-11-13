@@ -33,7 +33,7 @@ export default function FAQ({ heading = true }: { heading?: boolean }) {
   const baseId = useId()
 
   return (
-    <section id="faq" className="scroll-mt-20 py-20 md:py-28">
+    <section id="faq" className="scroll-mt-20 section-y">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {heading && <SectionHeading title="Everything you need to know" />}
 

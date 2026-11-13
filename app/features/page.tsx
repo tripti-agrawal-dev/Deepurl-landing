@@ -46,7 +46,7 @@ export default function FeaturesPage() {
         </Link>
       </PageHero>
 
-      <section className="py-20 md:py-28">
+      <section className="section-y">
         <div className="mx-auto max-w-5xl divide-y divide-border px-4 sm:px-6 lg:px-8">
           {coreFeatures.map((feature) => {
             const Icon = feature.icon
@@ -65,7 +65,7 @@ export default function FeaturesPage() {
         </div>
       </section>
 
-      <section className="pb-20 md:pb-28">
+      <section className="pb-14 md:pb-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading title="And the details that make it work day to day" />
           <ul className="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">

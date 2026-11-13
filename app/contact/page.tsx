@@ -30,7 +30,7 @@ export default function ContactPage() {
         description="Want a demo, help with an integration, or a partnership? Tell us what you need and we'll point your message to the right person."
       />
 
-      <section className="pb-20 md:pb-28">
+      <section className="pb-14 md:pb-20">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-8">
           <div className="lg:col-span-5">
             <div className="flex items-start gap-4 rounded-3xl border border-border bg-mist p-6">

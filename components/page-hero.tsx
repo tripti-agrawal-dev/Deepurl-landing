@@ -24,8 +24,8 @@ export default function PageHero({
       <div
         className={
           left
-            ? "relative mx-auto grid max-w-7xl items-center gap-10 px-4 pb-24 pt-16 sm:px-6 md:pb-28 md:pt-24 lg:grid-cols-12 lg:px-8"
-            : "relative mx-auto max-w-4xl px-4 pb-28 pt-16 text-center sm:px-6 md:pb-32 md:pt-24 lg:px-8"
+            ? "relative mx-auto grid max-w-7xl items-center gap-10 px-4 pb-16 pt-16 sm:px-6 md:pb-20 md:pt-24 lg:grid-cols-12 lg:px-8"
+            : "relative mx-auto max-w-4xl px-4 pb-12 pt-16 text-center sm:px-6 md:pb-16 md:pt-24 lg:px-8"
         }
       >
         <div className="lg:col-span-7">

@@ -56,7 +56,7 @@ export default function IntegrationsPage() {
         description="From the ads that bring people in to the store that gets them installed, DeepURL keeps the link and the data intact."
       />
 
-      <section className="pb-20 md:pb-28">
+      <section className="pb-14 md:pb-20">
         <div className="mx-auto grid max-w-6xl gap-4 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
           {groups.map((group) => {
             const Icon = group.icon

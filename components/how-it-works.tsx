@@ -24,7 +24,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="scroll-mt-20 py-20 md:py-28">
+    <section id="how-it-works" className="scroll-mt-20 section-y">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading title="From click to conversion in three steps" />
 

@@ -21,7 +21,7 @@ export default function CustomerStories() {
   const t = testimonials[active]
 
   return (
-    <section id="testimonials" className="scroll-mt-20 py-20 md:py-28">
+    <section id="testimonials" className="scroll-mt-20 section-y">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading title="Teams that stopped guessing" description="Hear from the people who use DeepURL to connect campaigns to customers." />
 
